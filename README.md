@@ -1,2 +1,2 @@
 # Tesis
-Pagina Web Basado en la Morbilidad Post-Sísmica
+Pagina Web Sobre la Morbilidad Post-Sísmisa
