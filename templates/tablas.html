@@ -101,49 +101,92 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>codigo</th>
+                                            <th>edad</th>
+                                            <th>genero</th>
+                                            <th>nivel_ed</th>
+                                            <th>sobrp</th>
+                                            <th>zon_urb</th>
+                                            <th>cons_con</th>
+                                            <th>norm_con</th>
+                                            <th>cen_sal</th>
+                                            <th>inst_med</th>
+                                            <th>cost_mar</th>
+                                            <th>carr_trans</th>
+                                            <th>atrp_esc</th>
+                                            <th>terr_noc</th>
+                                            <th>cond_end</th>
+                                            <th>cont_cad</th>
+                                            <th>serv_bas</th>
+                                            <th>des_alim</th>
+                                            <th>hac_san</th>
+                                            <th>lluvias</th>
+                                            <th>estc_agua</th>
+                                            <th>fam_muer</th>
+                                            <th>replicas</th>
+                                            <th>enf_pre</th>
+                                            <th>fam_vict</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>codigo</th>
+                                            <th>edad</th>
+                                            <th>genero</th>
+                                            <th>nivel_ed</th>
+                                            <th>sobrp</th>
+                                            <th>zon_urb</th>
+                                            <th>cons_con</th>
+                                            <th>norm_con</th>
+                                            <th>cen_sal</th>
+                                            <th>inst_med</th>
+                                            <th>cost_mar</th>
+                                            <th>carr_trans</th>
+                                            <th>atrp_esc</th>
+                                            <th>terr_noc</th>
+                                            <th>cond_end</th>
+                                            <th>cont_cad</th>
+                                            <th>serv_bas</th>
+                                            <th>des_alim</th>
+                                            <th>hac_san</th>
+                                            <th>lluvias</th>
+                                            <th>estc_agua</th>
+                                            <th>fam_muer</th>
+                                            <th>replicas</th>
+                                            <th>enf_pre</th>
+                                            <th>fam_vict</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
+                                        {% for encuesta in encuestas %}
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
+                                            <td>{{encuesta.0}}</td>
+                                            <td>{{encuesta.1}}</td>
+                                            <td>{{encuesta.2}}</td>
+                                            <td>{{encuesta.3}}</td>
+                                            <td>{{encuesta.4}}</td>
+                                            <td>{{encuesta.5}}</td>
+                                            <td>{{encuesta.6}}</td>
+                                            <td>{{encuesta.7}}</td>
+                                            <td>{{encuesta.8}}</td>
+                                            <td>{{encuesta.9}}</td>
+                                            <td>{{encuesta.10}}</td>
+                                            <td>{{encuesta.11}}</td>
+                                            <td>{{encuesta.12}}</td>
+                                            <td>{{encuesta.13}}</td>
+                                            <td>{{encuesta.14}}</td>
+                                            <td>{{encuesta.15}}</td>
+                                            <td>{{encuesta.16}}</td>
+                                            <td>{{encuesta.17}}</td>
+                                            <td>{{encuesta.18}}</td>
+                                            <td>{{encuesta.19}}</td>
+                                            <td>{{encuesta.20}}</td>
+                                            <td>{{encuesta.21}}</td>
+                                            <td>{{encuesta.22}}</td>
+                                            <td>{{encuesta.23}}</td>
+                                            <td>{{encuesta.24}}</td>
                                         </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                            <td>2009/01/12</td>
-                                            <td>$86,000</td>
-                                        </tr>
+                                        {% endfor %}
                                     </tbody>
                                 </table>
                             </div>
