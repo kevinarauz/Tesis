@@ -7,19 +7,19 @@ var ctx = document.getElementById("myBarChart");
 var myLineChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["dato1", "dato2", "dato3", "dato4", "dato5", "dato6"],
+    labels: ["January", "February", "March", "April", "May", "June"],
     datasets: [{
-      label: "Resultado",
+      label: "Revenue",
       backgroundColor: "rgba(2,117,216,1)",
       borderColor: "rgba(2,117,216,1)",
-      data: [5, 1, 10, 9, 4, 7],
+      data: [0.1, 0.9, 0.5, 0.6, 0.7, 0.8],
     }],
   },
   options: {
     scales: {
       xAxes: [{
         time: {
-          unit: 'numeros'
+          unit: 'month'
         },
         gridLines: {
           display: false
@@ -30,8 +30,8 @@ var myLineChart = new Chart(ctx, {
       }],
       yAxes: [{
         ticks: {
-          min: 0,
-          max: 10,
+          min: 0.0,
+          max: 1,
           maxTicksLimit: 5
         },
         gridLines: {

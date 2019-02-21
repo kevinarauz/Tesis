@@ -11,6 +11,11 @@ app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'tesis'
 mysql = MySQL(app)
 
+#Ejemplo de uso python anyware
+#app.config['MYSQL_HOST'] = 'keviin.mysql.pythonanywhere-services.com'
+#app.config['MYSQL_USER'] = 'keviin'
+#app.config['MYSQL_PASSWORD'] = 'naruto29'
+#app.config['MYSQL_DB'] = 'keviin$tesis'
 
 @app.route('/')
 def index():
