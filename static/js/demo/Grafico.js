@@ -3,16 +3,16 @@ Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSyste
 Chart.defaults.global.defaultFontColor = '#292b2c';
 
 // Bar Chart Example
-var ctx = document.getElementById("myBarChart");
+var ctx = document.getElementById("Grafico_Resultados");
 var myLineChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["January", "February", "March", "April", "May", "June","June","June","June","June","June","June","June","June","June","June","June","June","June","June"],
+    labels: ['cons_con','atrap_esc','cond_end','enf_pre','cen_sal','zon_urb','n_pers','norm_con','serv_bas','carr_trans','cont_cad','des_alim','terr_noc','fam_muer','hac_san','estc_agua','cont_mar','int_med','replicas','lluvias'],
     datasets: [{
       label: "Revenue",
       backgroundColor: "rgba(2,117,216,1)",
       borderColor: "rgba(2,117,216,1)",
-      data: [0.1, 0.9, 0.5, 0.6, 0.7, 0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8],
+      data: [3.18,2.37,2.34,2.3,2.23,2.23,1.84,1.83,1.8,1.59,1.56,1.14,1.11,1.1099,1.04,0.97,0.87,0.78,0.75,0.72],
     }],
   },
   options: {
@@ -31,7 +31,7 @@ var myLineChart = new Chart(ctx, {
       yAxes: [{
         ticks: {
           min: 0.0,
-          max: 1,
+          max: 4,
           maxTicksLimit: 5
         },
         gridLines: {

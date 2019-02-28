@@ -40,6 +40,10 @@ def tablas():
 def graficos():
     return render_template('graficos.html')
 
+@app.route('/DatosVariables')
+def DatosVariables():
+    return render_template('DatosVariables.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
