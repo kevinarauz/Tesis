@@ -44,6 +44,9 @@ def graficos():
 def DatosVariables():
     return render_template('DatosVariables.html')
 
+@app.route('/EncuestaExpertos')
+def EncuestaExpertos():
+    return render_template('EncuestaExpertos.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
