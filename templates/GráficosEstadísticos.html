@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Gráficos Estadísticos</title>
+    <link rel="shortcut icon" href="static/img/UGicon.png"/>
+    <meta charset="utf-8">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS-->
+    <link href="static/Framework/boostrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Paquetes de Iconos-->
+    <link href="static/Framework/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Boostrap Datatables CSS-->
+    <link href="static/Framework/datatables/css/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="static/css/sb-admin.min.css" rel="stylesheet">
+
+    <link href="static/css/personalizado.css" rel="stylesheet">
+</head>
+
+<body id="page-top" onload="mueveReloj()">
+
+<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+    <ul class="navbar-nav ">
+        <a class="navbar-brand mr-1" href="#" style="text-decoration: none;">Menú</a>
+        <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+            <i class="fas fa-bars" style="text-decoration: none;"></i>
+        </button>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <div class="" id="reloj"
+                 style="color:#fff;width: 150px;font-size:14px;text-align: right"></div>
+        </li>
+    </ul>
+</nav>
+
+<div id="wrapper">
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+        <br>
+        <li class="nav-item">
+            <a class="mx-auto" rel="home" href="http://www.ug.edu.ec/" title="" style="text-decoration: none;">
+                <img class="rounded mx-auto d-block" style="max-width:50px; margin-top: -7px;" src="/static/img/ug.png">
+                <p class="text-center center-block">Universidad de Guayaquil</p></a>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Inicio">
+                <i class="fas fa-fw fa-home"></i>
+                <span>Inicio</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Introducción">
+                <i class="fas fa-fw fa-chalkboard-teacher"></i>
+                <span>Introducción</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Problemática">
+                <i class="fas fa-question"></i>
+                <span>Problemática</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/MarcoLógico">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Marco Lógico</span>
+            </a>
+        </li>
+
+        <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle" href="#" id="MetodologiaInvestigacion" role="button"
+               data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-microscope"></i>
+                <span>Métodologia de la investigacion</span>
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="MetodologiaInvestigacion">
+                <!--<h6 class="dropdown-header">Métodologia:</h6>-->
+                <a class="dropdown-item" href="/TipoDeInvestigación">Tipo de Investigación</a>
+                <a class="dropdown-item" href="/PoblaciónMuestra">Población y Muestra</a>
+                <a class="dropdown-item active" href="/GráficosEstadísticos">Gráficos Estadísticos</a>
+                <a class="dropdown-item" href="/TablaDeEncuestas">Tabla de Encuestas</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="MarcoTeorico" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-book"></i>
+                <span>Marco Teórico</span>
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="MarcoTeorico">
+                <a class="dropdown-item" href="/Metodología">Metodología</a>
+                <a class="dropdown-item" href="/TablaDeVariables">Tabla de Variables</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Resultados">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Resultados</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Bibliografía">
+                <i class="fas fa-fw fa-brain"></i>
+                <span>Bibliografía</span></a>
+        </li>
+        <li class="nav-item">
+            <div class="row">
+                <div class="col-lg-12 mx-auto">
+                    <div class="rounded mx-auto d-block visitas" id="sfcz95z6hw9t4s77cjmz4699t9amdaghkwg">
+                        <script type="text/javascript"
+                                src="https://counter9.wheredoyoucomefrom.ovh/private/counter.js?c=z95z6hw9t4s77cjmz4699t9amdaghkwg&down=async"
+                                async>
+                        </script>
+                    </div>
+                </div>
+                <br>
+                <div class="col-lg-12 mx-auto">
+                    <a class="mx-auto" rel="Visitas" href="" title="" style="text-decoration: none;">
+                        <p class="text-center center-block">Visitas</p>
+                    </a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+
+        </li>
+    </ul>
+
+
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <header class="masthead text-center text-white d-flex">
+                <div class="container my-auto border border-primary">
+                    <div class="row">
+                        <div class="col-lg-12">
+                           <div class="row">
+                                <div class="col-lg-12 mx-auto">
+                                    <h1 class="text-uppercase display-10" style="color: #0056b3">
+                                        <strong>Gráficos Estadísticos</strong>
+                                    </h1>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container my-auto">
+                                        <div class="col-lg-6 mx-auto">
+                                            <br>
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Porcentajes de la pregunta 1</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/g1.jpg"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <p class="text-justify" style="color: black">
+                                        <strong>Análisis:</strong> Se observa que, de un total de 382 personas encuestadas, las edades de estas se encuentran detro de un intervalo de 17 – 71 años.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container my-auto">
+                                        <div class="col-lg-6 mx-auto">
+                                            <br>
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Porcentajes de la pregunta 2</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/g2.png"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <p class="text-justify" style="color: black">
+                                        <strong>Análisis:</strong> Se observa que de un total de 382 personas encuestadas que corresponde al 100%; el número de personas con género masculino fue de 202 que corresponde el 52,88% y el número de personas con género femenino fue de 180 que corresponde el 47,12%.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container my-auto">
+                                        <div class="col-lg-6 mx-auto">
+                                            <br>
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Porcentajes de la pregunta 3</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/g3.png"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <p class="text-justify" style="color: black">
+                                        <strong>Análisis:</strong> Se observa que del total de 382 personas encuestadas que corresponde al 100%; el número de personas que respondió que tienen Educación Primaria fue de 21 que corresponde el 5,50%, el número de personas que respondió que tienen Educación Secundaria fue de 140 que corresponde el 36,65% y el número de personas que respondió que tienen Educación Superior fue de 221 que corresponde el 57, 85%.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container my-auto">
+                                        <div class="col-lg-6 mx-auto">
+                                            <br>
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Porcentajes de la pregunta 4</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/g4.png"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <p class="text-justify" style="color: black">
+                                        <strong>Análisis:</strong> Se observa que de un total de 382 personas encuestadas que corresponde el 100%, correspondiente a la pregunta 4; el 47,91% Totalmente de acuerdo, el 30,89% está Parcialmente de acuerdo y el 21,20% está Totalmente desacuerdo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container my-auto">
+                                        <div class="col-lg-6 mx-auto">
+                                            <br>
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Porcentajes de la pregunta 5</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/g5.png"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <p class="text-justify" style="color: black">
+                                        <strong>Análisis:</strong> Se observa que de un total de 382 personas encuestadas que corresponde el 100%, correspondiente a la pregunta 5; el 52,36% Totalmente de acuerdo, el 41,10% está Parcialmente de acuerdo y el 6,54% está Totalmente desacuerdo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container my-auto">
+                                        <div class="col-lg-6 mx-auto">
+                                            <br>
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Porcentajes de la pregunta 6</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/g6.png"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <p class="text-justify" style="color: black">
+                                        <strong>Análisis:</strong> Se observa que de un total de 382 personas encuestadas que corresponde el 100%, correspondiente a la pregunta 6; el 50,52% Totalmente de acuerdo, el 40,84% está Parcialmente de acuerdo y el 8,64% está Totalmente desacuerdo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container my-auto">
+                                        <div class="col-lg-6 mx-auto">
+                                            <br>
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Porcentajes de la pregunta 7</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/g7.png"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <p class="text-justify" style="color: black">
+                                        <strong>Análisis:</strong> Se observa que de un total de 382 personas encuestadas que corresponde el 100%, correspondiente a la pregunta 7; el 74,08% Totalmente de acuerdo, el 21,73% está Parcialmente de acuerdo y el 4,19% está Totalmente desacuerdo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container my-auto">
+                                        <div class="col-lg-6 mx-auto">
+                                            <br>
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Porcentajes de la pregunta 8</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/g8.png"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <p class="text-justify" style="color: black">
+                                        <strong>Análisis:</strong> Se observa que de un total de 382 personas encuestadas que corresponde el 100%, correspondiente a la pregunta 8; el 76,70% Totalmente de acuerdo, el 17,54% está Parcialmente de acuerdo y el 5,76% está Totalmente desacuerdo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container my-auto">
+                                        <div class="col-lg-6 mx-auto">
+                                            <br>
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Porcentajes de la pregunta 9</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/g9.png"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <p class="text-justify" style="color: black">
+                                        <strong>Análisis:</strong> Se observa que de un total de 382 personas encuestadas que corresponde el 100%, correspondiente a la pregunta 9; el 58,90% Totalmente de acuerdo, el 32,98% está Parcialmente de acuerdo y el 8,12% está Totalmente desacuerdo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container my-auto">
+                                        <div class="col-lg-6 mx-auto">
+                                            <br>
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Porcentajes de la pregunta 10</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/g10.png"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <p class="text-justify" style="color: black">
+                                        <strong>Análisis:</strong> Se observa que de un total de 382 personas encuestadas que corresponde el 100%, correspondiente a la pregunta 10; el 51,83% Totalmente de acuerdo, el 37,43% está Parcialmente de acuerdo y el 10,73% está Totalmente desacuerdo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container my-auto">
+                                        <div class="col-lg-6 mx-auto">
+                                            <br>
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Porcentajes de la pregunta 11</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/g11.png"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <p class="text-justify" style="color: black">
+                                        <strong>Análisis:</strong> Se observa que de un total de 382 personas encuestadas que corresponde el 100%, correspondiente a la pregunta 11; el 58,12% Totalmente de acuerdo, el 20,16% está Parcialmente de acuerdo y el 21,73% está Totalmente desacuerdo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container my-auto">
+                                        <div class="col-lg-6 mx-auto">
+                                            <br>
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Porcentajes de la pregunta 12</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/g12.png"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <p class="text-justify" style="color: black">
+                                        <strong>Análisis:</strong> Se observa que de un total de 382 personas encuestadas que corresponde el 100%, correspondiente a la pregunta 12; el 67,80% Totalmente de acuerdo, el 28,53% está Parcialmente de acuerdo y el 3,66% está Totalmente desacuerdo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container my-auto">
+                                        <div class="col-lg-6 mx-auto">
+                                            <br>
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Porcentajes de la pregunta 13</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/g13.png"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <p class="text-justify" style="color: black">
+                                        <strong>Análisis:</strong> Se observa que de un total de 382 personas encuestadas que corresponde el 100%, correspondiente a la pregunta 13; el 63,87% Totalmente de acuerdo, el 24,61% está Parcialmente de acuerdo y el 11,52% está Totalmente desacuerdo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container my-auto">
+                                        <div class="col-lg-6 mx-auto">
+                                            <br>
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Porcentajes de la pregunta 14</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/g14.png"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <p class="text-justify" style="color: black">
+                                        <strong>Análisis:</strong> Se observa que de un total de 382 personas encuestadas que corresponde el 100%, correspondiente a la pregunta 14; el 47,91% Totalmente de acuerdo, el 50,09% está Parcialmente de acuerdo y el nadie está Totalmente desacuerdo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container my-auto">
+                                        <div class="col-lg-6 mx-auto">
+                                            <br>
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Porcentajes de la pregunta 15</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/g15.png"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <p class="text-justify" style="color: black">
+                                        <strong>Análisis:</strong> Se observa que de un total de 382 personas encuestadas que corresponde el 100%, correspondiente a la pregunta 15; el 48,69% Totalmente de acuerdo, el 36,39% está Parcialmente de acuerdo y el 14,92% está Totalmente desacuerdo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container my-auto">
+                                        <div class="col-lg-6 mx-auto">
+                                            <br>
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Porcentajes de la pregunta 16</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/g16.png"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <p class="text-justify" style="color: black">
+                                        <strong>Análisis:</strong> Se observa que de un total de 382 personas encuestadas que corresponde el 100%, correspondiente a la pregunta 16; el 39,79% Totalmente de acuerdo, el 36,13% está Parcialmente de acuerdo y el 24,08% está Totalmente desacuerdo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container my-auto">
+                                        <div class="col-lg-6 mx-auto">
+                                            <br>
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Porcentajes de la pregunta 17</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/g17.png"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <p class="text-justify" style="color: black">
+                                        <strong>Análisis:</strong> Se observa que de un total de 382 personas encuestadas que corresponde el 100%, correspondiente a la pregunta 17; el 80,37% Totalmente de acuerdo, el 19,63% está Parcialmente de acuerdo y nadie está Totalmente desacuerdo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container my-auto">
+                                        <div class="col-lg-6 mx-auto">
+                                            <br>
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Porcentajes de la pregunta 18</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/g18.png"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <p class="text-justify" style="color: black">
+                                        <strong>Análisis:</strong> Se observa que de un total de 382 personas encuestadas que corresponde el 100%, correspondiente a la pregunta 18; el 55,50% Totalmente de acuerdo, el 32,46% está Parcialmente de acuerdo y el 12,04% está Totalmente desacuerdo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container my-auto">
+                                        <div class="col-lg-6 mx-auto">
+                                            <br>
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Porcentajes de la pregunta 19</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/g19.png"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <p class="text-justify" style="color: black">
+                                        <strong>Análisis:</strong> Se observa que de un total de 382 personas encuestadas que corresponde el 100%, correspondiente a la pregunta 19; el 60,21% Totalmente de acuerdo, el 31,94% está Parcialmente de acuerdo y el 7,85% está Totalmente desacuerdo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container my-auto">
+                                        <div class="col-lg-6 mx-auto">
+                                            <br>
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Porcentajes de la pregunta 20</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/g20.png"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <p class="text-justify" style="color: black">
+                                        <strong>Análisis:</strong> Se observa que de un total de 382 personas encuestadas que corresponde el 100%, correspondiente a la pregunta 20; el 55,50% Totalmente de acuerdo, el 41,36% está Parcialmente de acuerdo y el 3,14% está Totalmente desacuerdo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container my-auto">
+                                        <div class="col-lg-6 mx-auto">
+                                            <br>
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Porcentajes de la pregunta 21</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/g21.png"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <p class="text-justify" style="color: black">
+                                        <strong>Análisis:</strong> Se observa que de un total de 382 personas encuestadas que corresponde el 100%, correspondiente a la pregunta 21; el 82,20% Totalmente de acuerdo, el 14,40% está Parcialmente de acuerdo y el 3,40% está Totalmente desacuerdo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container my-auto">
+                                        <div class="col-lg-6 mx-auto">
+                                            <br>
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Porcentajes de la pregunta 22</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/g22.png"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <p class="text-justify" style="color: black">
+                                        <strong>Análisis:</strong> Se observa que de un total de 382 personas encuestadas que corresponde el 100%, correspondiente a la pregunta 22; el 73,30% Totalmente de acuerdo, el 24,35% está Parcialmente de acuerdo y el 2,36% está Totalmente desacuerdo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container my-auto">
+                                        <div class="col-lg-6 mx-auto">
+                                            <br>
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Porcentajes de la pregunta 23</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/g23.png"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <p class="text-justify" style="color: black">
+                                        <strong>Análisis:</strong> Se observa que de un total de 382 personas encuestadas que corresponde el 100%, correspondiente a la pregunta 23; el 72,25% Totalmente de acuerdo, el 27,75% está Parcialmente de acuerdo y nadie está Totalmente desacuerdo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="container my-auto">
+                                        <div class="col-lg-6 mx-auto">
+                                            <br>
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Porcentajes de la pregunta 24</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/g24.png"
+                                                 alt="">
+                                        </div>
+                                    </div>
+                                    <p class="text-justify" style="color: black">
+                                        <strong>Análisis:</strong> Se observa que de un total de 382 personas encuestadas que corresponde el 100%, correspondiente a la pregunta 24; el 8,38% tuvo algún familiar o amigo que ha sido víctima mortal del terremoto y el 8,38% restante no.
+                                    </p>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <!-- /.container-fluid -->
+
+        <!-- Sticky Footer -->
+        <footer class="sticky-footer">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright © keviin.pythonanywhere.com 2019</span>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.content-wrapper -->
+</div>
+<!-- /#wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- JavaScript-->
+<script src="static/Framework/jquery/jquery.min.js"></script>
+<script src="static/Framework/boostrap/js/bootstrap.bundle.min.js"></script>
+<script src="static/Framework/jquery-easing/jquery.easing.min.js"></script>
+<script src="static/js/sb-admin.min.js"></script>
+<script src="static/js/personalizado.js"></script>
+<!--<script src="static/js/Grafico.js"></script>-->
+</body>
+
+</html>

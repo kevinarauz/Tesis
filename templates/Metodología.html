@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Metodología</title>
+    <link rel="shortcut icon" href="static/img/UGicon.png"/>
+    <meta charset="utf-8">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS-->
+    <link href="static/Framework/boostrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Paquetes de Iconos-->
+    <link href="static/Framework/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Boostrap Datatables CSS-->
+    <link href="static/Framework/datatables/css/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="static/css/sb-admin.min.css" rel="stylesheet">
+
+    <link href="static/css/personalizado.css" rel="stylesheet">
+</head>
+
+<body id="page-top" onload="mueveReloj()">
+
+<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+    <ul class="navbar-nav ">
+        <a class="navbar-brand mr-1" href="#" style="text-decoration: none;">Menú</a>
+        <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+            <i class="fas fa-bars" style="text-decoration: none;"></i>
+        </button>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <div class="" id="reloj"
+                 style="color:#fff;width: 150px;font-size:14px;text-align: right"></div>
+        </li>
+    </ul>
+</nav>
+
+<div id="wrapper">
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+        <br>
+        <li class="nav-item">
+            <a class="mx-auto" rel="home" href="http://www.ug.edu.ec/" title="" style="text-decoration: none;">
+                <img class="rounded mx-auto d-block" style="max-width:50px; margin-top: -7px;" src="/static/img/ug.png">
+                <p class="text-center center-block">Universidad de Guayaquil</p></a>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Inicio">
+                <i class="fas fa-fw fa-home"></i>
+                <span>Inicio</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Introducción">
+                <i class="fas fa-fw fa-chalkboard-teacher"></i>
+                <span>Introducción</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Problemática">
+                <i class="fas fa-question"></i>
+                <span>Problemática</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/MarcoLógico">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Marco Lógico</span>
+            </a>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="MetodologiaInvestigacion" role="button"
+               data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-microscope"></i>
+                <span>Métodologia de la investigacion</span>
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="MetodologiaInvestigacion">
+                <!--<h6 class="dropdown-header">Métodologia:</h6>-->
+                <a class="dropdown-item" href="/TipoDeInvestigación">Tipo de Investigación</a>
+                <a class="dropdown-item" href="/PoblaciónMuestra">Población y Muestra</a>
+                <a class="dropdown-item" href="/GráficosEstadísticos">Gráficos Estadísticos</a>
+                <a class="dropdown-item" href="/TablaDeEncuestas">Tabla de Encuestas</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle" href="#" id="MarcoTeorico" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-book"></i>
+                <span>Marco Teórico</span>
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="MarcoTeorico">
+                <a class="dropdown-item active" href="/Metodología">Metodología</a>
+                <a class="dropdown-item" href="/TablaDeVariables">Tabla de Variables</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Resultados">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Resultados</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Bibliografía">
+                <i class="fas fa-fw fa-brain"></i>
+                <span>Bibliografía</span></a>
+        </li>
+        <li class="nav-item">
+            <div class="row">
+                <div class="col-lg-12 mx-auto">
+                    <div class="rounded mx-auto d-block visitas" id="sfcz95z6hw9t4s77cjmz4699t9amdaghkwg">
+                        <script type="text/javascript"
+                                src="https://counter9.wheredoyoucomefrom.ovh/private/counter.js?c=z95z6hw9t4s77cjmz4699t9amdaghkwg&down=async"
+                                async>
+                        </script>
+                    </div>
+                </div>
+                <br>
+                <div class="col-lg-12 mx-auto">
+                    <a class="mx-auto" rel="Visitas" href="" title="" style="text-decoration: none;">
+                        <p class="text-center center-block">Visitas</p>
+                    </a>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+
+
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <div class="container my-auto">
+                <div class="row">
+                    <div class="col-lg-12 border border-primary">
+                        <div class="container my-auto">
+                            <div class="col-lg-6 mx-auto">
+                                <br>
+                                <p class="mx-auto text-center" style="color: black">
+                                    <strong>Modelo propuesto</strong>
+                                </p>
+                            </div>
+                            <p class="text-justify mb-2 " style="color: black">Para realizar el modelo propuesto,
+                                se consideró hacer uso del software de modelado Mental Modeler que ayuda a capturar el
+                                conocimiento sobre diferentes temas de interés en un formato estandarizado que puede ser
+                                utilizado para el análisis de diversos escenarios.
+                                <br><br>El modelo Neuro-Neutrosófico se basa en la creación de un Mapa Cognitivo
+                                Neutrosófico (MCN), que es la generalización del Mapa Cognitivo Difuso (MCD).
+                                <br><br>En el gráfico siguiente propone un modelo que integra RN y los MCN con el
+                                propósito de brindar sugerencias a los decisores en relación con la morbimortalidad
+                                luego de un terremoto.
+                            </p>
+                            <div class="container my-auto">
+                                <div class="col-lg-7 mx-auto">
+                                    <br>
+                                    <p class="mx-auto text-center" style="color: black">
+                                        <strong>Proceso de la investigación cualitativa</strong>
+                                    </p>
+                                    <img class="d-block w-100" src="static/img/Modelo_Propuesto.png"
+                                         alt="Modelo Propuesto">
+                                    <p class="mx-auto text-center" style="color: black">
+                                        <strong>Elaboración: </strong>Diego Fernando Patiño Plazarte y Kevin Eduardo
+                                        Arauz González.
+                                    </p>
+                                </div>
+                                <br>
+                                <p class="text-justify mb-2 ">
+                                    Detalle de los pasos por seguir para la aplicación del modelo Neuro-Neutrosófico son
+                                    los que se detallan a continuación:
+                                    <br><br><strong>1. Identificar las variables, factores y/o criterios sobre el
+                                    problema a evaluar:</strong>
+                                    Son los principios, normas o ideas de valoración en relación a los cuales se emite
+                                    un juicio valorativo sobre el problema a evaluar. Cada uno de los criterios serán
+                                    los nodos que serán necesarios para la construcción del MCD.
+                                    <br><br>Luego de haber analizado los factores a tener en cuenta para realizar la
+                                    construcción del Mapa Cognitivo Neutrosófico, se procede con el análisis de las
+                                    relaciones causales entre ellos.
+                                    <br><br>La siguiente tabla muestra los factores que influyeron en la morbimortalidad
+                                    que se presentaron luego del terremoto en los habitantes del cantón Pedernales
+                                    provincia de Manabí. Estos factores representarán los nodos en el Mapa Cognitivo
+                                    Neutrosófico (MCN).
+                                    <br><br><strong>2. Definir una escala para la ponderación de los pesos:</strong>
+                                    Esto se debe hacer por los expertos de dominio del tema a tratar de acuerdo con una
+                                    escala de preferencia.
+                                </p>
+                                <div class="container my-auto">
+                                    <div class="col-lg-12 mx-auto">
+                                        <br>
+                                        <p class="mx-auto text-center" style="color: black">
+                                            <strong>Términos lingüísticos empleados</strong>
+                                        </p>
+                                        <div class="col-lg-6 mx-auto">
+                                            <img class="d-block w-100"
+                                                 src="static/img/Términos_lingüísticos_empleados.png"
+                                                 alt="Modelo Propuesto"></div>
+                                        <div class="col-lg-8 mx-auto">
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Elaboración: </strong>Diego Fernando Patiño Plazarte y Kevin
+                                                Eduardo
+                                                Arauz González.
+                                            </p></div>
+                                    </div>
+                                </div>
+                                <div class="container my-auto">
+                                    <div class="col-lg-12 mx-auto">
+                                        <br>
+                                        <div class="col-lg-6 mx-auto">
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Conjunto de etiquetas lingüísticas</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/Conjunto_de_etiquetas_lingüísticas.png"
+                                                 alt="Modelo Propuesto">
+                                        </div>
+                                        <div class="col-lg-8 mx-auto">
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Elaboración: </strong>Diego Fernando Patiño Plazarte y Kevin
+                                                Eduardo Arauz González.
+                                                <br>
+                                                <strong>Fuente: </strong>Google Maps.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <p class="text-justify mb-2 ">
+                                    <strong>3. Construir el MCD:</strong> Posteriormente, se desarrolla un mapa
+                                    cognitivo
+                                    difuso (MCD) para indicar la influencia entre los criterios por el experto. Un MCD
+                                    consiste en un grafo dirigido con varios nodos que representan los conceptos
+                                    causales que surgen del tema a tratar y de arcos dirigidos conectados a los nodos
+                                    que representan las relaciones causales entre los mismo. Se utilizó la herramienta
+                                    de software Mental Modeler para construir el MCD, ya que facilita los cálculos
+                                    matemáticos para obtener los resultados esperados.
+                                    <br><br><strong>4. Asignar la ponderación de los pesos en las relaciones entre
+                                    nodos:</strong> Las aristas que conectan los nodos tienen asociado un peso cuyo
+                                    valor puede pertenecer al intervalo [-1,1]. Estos valores indican el peso o la
+                                    intensidad con que un concepto influye en el otro. El peso será positivo si
+                                    representa una relación causal incremental y negativo si la conexión implica una
+                                    relación causal decreciente. El término difuso proviene del hecho con que estos
+                                    valores son asignados por uno o varios expertos y por tanto conllevan algún grado de
+                                    información cualitativa propia de la interpretación del experto y que es introducida
+                                    al mapa como un valor concreto.
+                                </p>
+                                <div class="container my-auto">
+                                    <div class="col-lg-12 mx-auto text-center">
+                                        <br>
+                                        <p class="mx-auto text-center" style="color: black">
+                                            <strong>Conjunto de etiquetas lingüísticas</strong>
+                                        </p>
+                                        <img class="d-block w-100"
+                                             src="static/img/Mapa_cognitivo_difuso_(MCN)_obtenido.png"
+                                             alt="Modelo Propuesto">
+                                        <p class="mx-auto text-center" style="color: black">
+                                            <strong>Elaboración: </strong>Diego Fernando Patiño Plazarte y Kevin
+                                            Eduardo Arauz González.
+                                            <br>
+                                            <strong>Fuente: </strong>Datos obtenidos del Mental Modeler.
+                                        </p>
+                                    </div>
+                                </div>
+                                <p class="text-justify mb-2 ">
+                                    <strong>5. Realizar el Análisis Estático en MCN:</strong> El análisis estático en
+                                    MCN se centra en la selección de los conceptos que juegan un papel más importante en
+                                    el sistema modelado. Se realiza a partir de la matriz de adyacencia tomando en
+                                    consideración el valor absoluto de los pesos.
+                                    <br><br>El proceso a seguir en el análisis estático es el siguiente:
+                                </p>
+                                <div class="container my-auto">
+                                    <div class="col-lg-12 mx-auto">
+                                        <br>
+                                        <div class="col-lg-9 mx-auto">
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Conjunto de etiquetas lingüísticas</strong>
+                                            </p>
+                                            <img class="d-block w-100"
+                                                 src="static/img/Proceso_del_Análisis_Estático_en_MCN.png"
+                                                 alt="Modelo Propuesto">
+                                        </div>
+                                        <div class="col-lg-8 mx-auto">
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Elaboración: </strong>Diego Fernando Patiño Plazarte y Kevin
+                                                Eduardo Arauz González.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-justify mb-2 ">
+                                    La matriz de adyacencia se obtuvo luego de haber construido y de añadir los pesos a
+                                    cada arco que relaciona los nodos. Esta matriz es fundamental al momento de realizar
+                                    el análisis estático. A continuación, se muestra la matriz de adyacencia obtenida:
+                                </p>
+                                <div class="container my-auto">
+                                    <div class="col-lg-12 mx-auto">
+                                        <br>
+                                        <p class="mx-auto text-center" style="color: black">
+                                            <strong>Matriz de Adyacencia Neutrosófica</strong>
+                                        </p>
+                                        <img class="d-block w-100"
+                                             src="static/img/Matriz_de_Adyacencia_Neutrosófica.png"
+                                             alt="Modelo Propuesto">
+                                        <p class="mx-auto text-center" style="color: black">
+                                            <strong>Elaboración: </strong>Diego Fernando Patiño Plazarte y Kevin
+                                            Eduardo Arauz González.
+                                            <br>
+                                            <strong>Fuente: </strong>Datos obtenidos del Mental Modeler.
+                                        </p>
+                                    </div>
+                                </div>
+                                <br>
+                                <p class="text-justify mb-2 ">
+                                    A continuación, se muestran las medidas de centralidad calculadas:
+                                </p>
+                                <div class="container my-auto">
+                                    <div class="col-lg-12 mx-auto text-center">
+                                        <br>
+                                        <div class="col-lg-6 mx-auto text-center">
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Indegree</strong>
+                                            </p>
+                                            <img class="w-50"
+                                                 src="static/img/Indegree.png"
+                                                 alt="Indegree">
+                                        </div>
+                                        <div class="col-lg-8 mx-auto text-center">
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Elaboración: </strong>Diego Fernando Patiño Plazarte y Kevin
+                                                Eduardo Arauz González.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container my-auto">
+                                    <div class="col-lg-12 mx-auto text-center">
+                                        <br>
+                                        <div class="col-lg-6 mx-auto text-center">
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Outdegree</strong>
+                                            </p>
+                                            <img class="w-50"
+                                                 src="static/img/Outdegree.png"
+                                                 alt="Indegree">
+                                        </div>
+                                        <div class="col-lg-8 mx-auto text-center">
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Elaboración: </strong>Diego Fernando Patiño Plazarte y Kevin
+                                                Eduardo Arauz González.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container my-auto">
+                                    <div class="col-lg-12 mx-auto text-center">
+                                        <br>
+                                        <div class="col-lg-6 mx-auto text-center">
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Total degree</strong>
+                                            </p>
+                                            <img class="w-50"
+                                                 src="static/img/Total_degree.png"
+                                                 alt="Total degree">
+                                        </div>
+                                        <div class="col-lg-8 mx-auto text-center">
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Elaboración: </strong>Diego Fernando Patiño Plazarte y Kevin
+                                                Eduardo Arauz González.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <p class="text-justify mb-2 ">
+                                    El análisis estático en MCN el cual da como resultado inicialmente números
+                                    neutrosóficos de la forma (a+bI, donde I = indeterminación). Es por ello que se
+                                    requiere un proceso de-neutrosificación tal como fue propuesto por Salmerona, J.L.
+                                    and F. Smarandache (2010), donde la indeterminación I ∈ [0,1] es reemplazado por sus
+                                    valores máximos y mínimos.
+                                </p>
+                                <div class="container my-auto">
+                                    <div class="col-lg-12 mx-auto text-center">
+                                        <br>
+                                        <div class="col-lg-6 mx-auto text-center">
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>De-neutrosificación</strong>
+                                            </p>
+                                            <img class="w-50"
+                                                 src="static/img/De-neutrosificación.png"
+                                                 alt="De-neutrosificación">
+                                        </div>
+                                        <div class="col-lg-8 mx-auto text-center">
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Elaboración: </strong>Diego Fernando Patiño Plazarte y Kevin
+                                                Eduardo Arauz González.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <p class="text-justify mb-2 ">
+                                    Al final se procede a trabajar con la media de los valores extremos obtenidos en la
+                                    De-neutroficación dividiéndolos para 2, a continuación, la fórmula:
+                                </p>
+                                <div class="container my-auto">
+                                    <div class="col-lg-12 mx-auto text-center">
+                                        <br>
+                                        <div class="col-lg-4 mx-auto text-center">
+                                            <p class="mx-auto text-center" style="color: black">
+                                                <strong>Fórmula</strong>
+                                            </p>
+                                            <img class="w-50"
+                                                 src="static/img/Formula.png"
+                                                 alt="formula">
+                                        </div>
+                                    </div>
+                                    <div class="container my-auto">
+                                        <div class="col-lg-12 mx-auto text-center">
+                                            <br>
+                                            <div class="col-lg-6 mx-auto text-center">
+                                                <p class="mx-auto text-center" style="color: black">
+                                                    <strong>Mediana de los valores</strong>
+                                                </p>
+                                                <img class="w-50"
+                                                     src="static/img/Mediana_de_los_valores.png"
+                                                     alt="Mediana de los valores">
+                                            </div>
+                                            <div class="col-lg-8 mx-auto text-center">
+                                                <p class="mx-auto text-center" style="color: black">
+                                                    <strong>Elaboración: </strong>Diego Fernando Patiño Plazarte y Kevin
+                                                    Eduardo Arauz González.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <p class="text-justify mb-2 ">
+                                        Como resultado se determina el siguiente orden de importancia para los factores
+                                        analizados de acuerdo con la centralidad:
+                                    </p>
+                                    <div class="container my-auto">
+                                        <div class="col-lg-12 mx-auto">
+                                            <br>
+                                            <div class="col-lg-6 mx-auto">
+                                            <img class="d-block w-100" src="static/img/resultado_final.jpeg"
+                                                 alt="resultado final">
+                                            </div>
+                                            <div class="col-lg-8 mx-auto text-center">
+                                                <p class="mx-auto text-center" style="color: black">
+                                                    <strong>Elaboración: </strong>Diego Fernando Patiño Plazarte y Kevin
+                                                    Eduardo Arauz González.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+        <br>
+        <!-- Sticky Footer -->
+        <footer class="sticky-footer">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright © keviin.pythonanywhere.com 2019</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- /.content-wrapper -->
+</div>
+<!-- /#wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- JavaScript-->
+<script src="static/Framework/jquery/jquery.min.js"></script>
+<script src="static/Framework/boostrap/js/bootstrap.bundle.min.js"></script>
+<script src="static/Framework/jquery-easing/jquery.easing.min.js"></script>
+<script src="static/js/sb-admin.min.js"></script>
+<script src="static/js/personalizado.js"></script>
+<!--<script src="static/js/Grafico.js"></script>-->
+</body>
+
+</html>

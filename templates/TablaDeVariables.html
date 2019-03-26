@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Tabla de Variables</title>
+    <link rel="shortcut icon" href="static/img/UGicon.png"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS-->
+    <link href="static/Framework/boostrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Paquetes de Iconos-->
+    <link href="static/Framework/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Boostrap Datatables CSS-->
+    <link href="static/Framework/datatables/css/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="static/css/sb-admin.min.css" rel="stylesheet">
+
+    <link href="static/css/personalizado.css" rel="stylesheet">
+</head>
+
+<body id="page-top" onload="mueveReloj()">
+
+<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+    <ul class="navbar-nav ">
+        <a class="navbar-brand mr-1" href="#" style="text-decoration: none;">Menú</a>
+        <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+            <i class="fas fa-bars" style="text-decoration: none;"></i>
+        </button>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <div class="" id="reloj"
+                 style="color:#fff;width: 150px;font-size:14px;text-align: right"></div>
+        </li>
+    </ul>
+</nav>
+
+<div id="wrapper">
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+        <br>
+        <li class="nav-item">
+            <a class="mx-auto" rel="home" href="http://www.ug.edu.ec/" title="" style="text-decoration: none;">
+                <img class="rounded mx-auto d-block" style="max-width:50px; margin-top: -7px;" src="/static/img/ug.png">
+                <p class="text-center center-block">Universidad de Guayaquil</p></a>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Inicio">
+                <i class="fas fa-fw fa-home"></i>
+                <span>Inicio</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Introducción">
+                <i class="fas fa-fw fa-chalkboard-teacher"></i>
+                <span>Introducción</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Problemática">
+                <i class="fas fa-question"></i>
+                <span>Problemática</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/MarcoLógico">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Marco Lógico</span>
+            </a>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="MetodologiaInvestigacion" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-microscope"></i>
+                <span>Métodologia de la investigacion</span>
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="MetodologiaInvestigacion">
+                <!--<h6 class="dropdown-header">Métodologia:</h6>-->
+                <a class="dropdown-item" href="/TipoDeInvestigación">Tipo de Investigación</a>
+                <a class="dropdown-item" href="/PoblaciónMuestra">Población y Muestra</a>
+                <a class="dropdown-item" href="/GráficosEstadísticos">Gráficos Estadísticos</a>
+                <a class="dropdown-item" href="/TablaDeEncuestas">Tabla de Encuestas</a>
+            </div>
+        </li>
+
+         <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle" href="#" id="MarcoTeorico" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-book"></i>
+                <span>Marco Teórico</span>
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="MarcoTeorico">
+                <a class="dropdown-item" href="/Metodología">Metodología</a>
+                <a class="dropdown-item active" href="/TablaDeVariables">Tabla de Variables</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Resultados">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Resultados</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Bibliografía">
+                <i class="fas fa-fw fa-brain"></i>
+                <span>Bibliografía</span></a>
+        </li>
+        <li class="nav-item">
+            <div class="row">
+                <div class="col-lg-12 mx-auto">
+                    <div class="rounded mx-auto d-block visitas" id="sfcz95z6hw9t4s77cjmz4699t9amdaghkwg">
+                        <script type="text/javascript"
+                                src="https://counter9.wheredoyoucomefrom.ovh/private/counter.js?c=z95z6hw9t4s77cjmz4699t9amdaghkwg&down=async"
+                                async>
+                        </script>
+                    </div>
+                </div>
+                <br>
+                <div class="col-lg-12 mx-auto">
+                    <a class="mx-auto" rel="Visitas" href="" title="" style="text-decoration: none;">
+                        <p class="text-center center-block">Visitas</p>
+                    </a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+
+        </li>
+    </ul>
+
+
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <header class="masthead text-center text-white d-flex">
+                <div class="container my-auto">
+                    <div class="row">
+                        <div class="col-lg-10 mx-auto">
+                            <h1 class="text-uppercase" style="color: #0056b3">
+                                <strong>Tabla de variables</strong>
+                            </h1>
+                            <hr>
+                        </div>
+                        <div class="col-lg-8 mx-auto">
+                            <p class="text-faded mb-5" style="color: black">A continuación se mostran la descripción de
+                                cada variable utilizada.</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- DataTable -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    Tabla de variables
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Variables</th>
+                                <th>Descripción</th>
+
+                            </tr>
+                            </thead>
+                            <tfoot>
+                            </tfoot>
+                            <tbody>
+                            {% for factor in factores %}
+                            <tr>
+                                <td>{{factor.0}}</td>
+                                <td>{{factor.1}}</td>
+                                <td>{{factor.2}}</td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+
+        <!-- Sticky Footer -->
+        <footer class="sticky-footer">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright © keviin.pythonanywhere.com 2019</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- /.content-wrapper -->
+</div>
+<!-- /#wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- JavaScript-->
+<script src="static/Framework/jquery/jquery.min.js"></script>
+<script src="static/Framework/boostrap/js/bootstrap.bundle.min.js"></script>
+<script src="static/Framework/jquery-easing/jquery.easing.min.js"></script>
+<script src="static/js/sb-admin.min.js"></script>
+<script src="static/js/personalizado.js"></script>
+<script src="static/Framework/datatables/js/jquery.dataTables.js"></script>
+<script src="static/Framework/datatables/js/dataTables.bootstrap4.js"></script>
+<script src="static/js/datatables.js"></script>
+
+</body>
+</html>

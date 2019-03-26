@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Resultados</title>
+    <link rel="shortcut icon" href="static/img/UGicon.png"/>
+    <meta charset="utf-8">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS-->
+    <link href="static/Framework/boostrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Paquetes de Iconos-->
+    <link href="static/Framework/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Boostrap Datatables CSS-->
+    <link href="static/Framework/datatables/css/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="static/css/sb-admin.min.css" rel="stylesheet">
+
+    <link href="static/css/personalizado.css" rel="stylesheet">
+</head>
+
+<body id="page-top" onload="mueveReloj()">
+
+<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+    <ul class="navbar-nav ">
+        <a class="navbar-brand mr-1" href="#" style="text-decoration: none;">Menú</a>
+        <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+            <i class="fas fa-bars" style="text-decoration: none;"></i>
+        </button>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <div class="" id="reloj"
+                 style="color:#fff;width: 150px;font-size:14px;text-align: right"></div>
+        </li>
+    </ul>
+</nav>
+
+<div id="wrapper">
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+        <br>
+        <li class="nav-item">
+            <a class="mx-auto" rel="home" href="http://www.ug.edu.ec/" title="" style="text-decoration: none;">
+                <img class="rounded mx-auto d-block" style="max-width:50px; margin-top: -7px;" src="/static/img/ug.png">
+                <p class="text-center center-block">Universidad de Guayaquil</p></a>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Inicio">
+                <i class="fas fa-fw fa-home"></i>
+                <span>Inicio</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Introducción">
+                <i class="fas fa-fw fa-chalkboard-teacher"></i>
+                <span>Introducción</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Problemática">
+                <i class="fas fa-question"></i>
+                <span>Problemática</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/MarcoLógico">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Marco Lógico</span>
+            </a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="MetodologiaInvestigacion" role="button"
+               data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-microscope"></i>
+                <span>Métodologia de la investigacion</span>
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="MetodologiaInvestigacion">
+                <!--<h6 class="dropdown-header">Métodologia:</h6>-->
+                <a class="dropdown-item" href="/TipoDeInvestigación">Tipo de Investigación</a>
+                <a class="dropdown-item" href="/PoblaciónMuestra">Población y Muestra</a>
+                <a class="dropdown-item" href="/GráficosEstadísticos">Gráficos Estadísticos</a>
+                <a class="dropdown-item" href="/TablaDeEncuestas">Tabla de Encuestas</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="MarcoTeorico" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-book"></i>
+                <span>Marco Teórico</span>
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="MarcoTeorico">
+                <a class="dropdown-item" href="/Metodología">Metodología</a>
+                <a class="dropdown-item" href="/TablaDeVariables">Tabla de Variables</a>
+            </div>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="/Resultados">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Resultados</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Bibliografía">
+                <i class="fas fa-fw fa-brain"></i>
+                <span>Bibliografía</span></a>
+        </li>
+        <li class="nav-item">
+            <div class="row">
+                <div class="col-lg-12 mx-auto">
+                    <div class="rounded mx-auto d-block visitas" id="sfcz95z6hw9t4s77cjmz4699t9amdaghkwg">
+                        <script type="text/javascript"
+                                src="https://counter9.wheredoyoucomefrom.ovh/private/counter.js?c=z95z6hw9t4s77cjmz4699t9amdaghkwg&down=async"
+                                async>
+                        </script>
+                    </div>
+                </div>
+                <br>
+                <div class="col-lg-12 mx-auto">
+                    <a class="mx-auto" rel="Visitas" href="" title="" style="text-decoration: none;">
+                        <p class="text-center center-block">Visitas</p>
+                    </a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+
+        </li>
+    </ul>
+
+
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <div class="container my-auto">
+                <div class="row">
+                    <div class="col-lg-12 mx-auto">
+                        <!-- Area Chart Example-->
+                        <div class="row">
+                            <div class="col-lg-12 mx-auto">
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-bar"></i>
+                                        Gráfico de barras de resultados
+                                    </div>
+                                    <div class="card-body">
+                                        <canvas id="GraficoResultados" width="100%" height="25"></canvas>
+                                    </div>
+                                    <div class="container my-auto">
+                                        <div class="col-lg-12 mx-auto">
+                                            <img class="d-block w-100"
+                                                 src="static/img/equivalencia_variables.jpg"
+                                                 alt="equivalencia variables">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-pie"></i>
+                                       Gráfico circular de resultados
+                                    </div>
+                                    <div class="card-body">
+                                        <canvas id="myPieChart" width="100%" height="40"></canvas>
+                                    </div>
+                                    <div class="container my-auto">
+                                        <div class="col-lg-12 mx-auto">
+                                            <img class="d-block w-100"
+                                                 src="static/img/equivalencia_variables.jpg"
+                                                 alt="equivalencia variables">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 border border-primary">
+                                <div class="container my-auto">
+                                    <div class="col-lg-6 mx-auto">
+                                        <br>
+                                        <p class="mx-auto text-center" style="color: black">
+                                            <strong>Conclusiones</strong>
+                                        </p>
+                                    </div>
+                                    <p class="text-justify mb-2 " style="color: black">En el presente estudio
+                                        investigativo, se
+                                        evidencia cómo las metodologías utilizadas para el manejo de la incertidumbre y
+                                        vaguedad en el proceso de toma de decisiones ayuda mucho al experto y a
+                                        cualquier persona que tenga estos inconvenientes ante un problema propuesto que
+                                        no pueda resolver mediante otros métodos clásicos.
+
+                                        <br><br>En este caso se presentó una propuesta donde se realizó la combinación
+                                        de las metodologías de Redes Neuronales Artificiales (RNA) y la Neutrosofía
+                                        aplicados a nuestro estudio investigativo que nos ayudó a resolver el problema
+                                        que tienen los expertos en proceso de toma de decisiones relacionadas con los
+                                        desastres naturales que ocurren en Ecuador.
+
+                                        <br><br>La Neutrosofía es una metodología que generaliza la lógica difusa por
+                                        tal motivo se utilizaron los Mapas Cognitivos Difusos (MCD) también conocidos
+                                        como Mapa Cognitivos Borrosos (MCB), son de mucha ayuda en el momento de
+                                        realizar el análisis de causalidad entre factores sobre cualquier problema
+                                        propuesto que sirva de ayuda para evaluar qué soluciones se les puede dar a este
+                                        encontrando el origen del problema. El análisis se lleva a cabo entre personas
+                                        que sean expertas en el tema brindando opiniones para llegar a un consenso. La
+                                        herramienta de software Mental Modeler es de mucha ayuda para realizar este tipo
+                                        de trabajos ya que presenta una interfaz sencilla e intuitiva.
+
+                                        <br><br>Se concluyó también que la creación de una página web informativa para
+                                        visualizar los resultados que se obtuvieron el estudio aplicando las
+                                        metodologías de RNA y Neutrosofía, sería de ayuda para que tanto expertos como
+                                        personas interesadas en el tema puedan entender cuáles fueron los factores que
+                                        tuvieron que ver en la morbimortalidad con las víctimas luego del terremoto que
+                                        aconteció en Pedernales.
+                                    </p>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+        <!-- /.container-fluid -->
+
+        <!-- Sticky Footer -->
+        <footer class="sticky-footer">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright © keviin.pythonanywhere.com 2019</span>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.content-wrapper -->
+</div>
+<!-- /#wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- JavaScript-->
+<script src="static/Framework/jquery/jquery.min.js"></script>
+<script src="static/Framework/boostrap/js/bootstrap.bundle.min.js"></script>
+<script src="static/Framework/jquery-easing/jquery.easing.min.js"></script>
+<script src="static/js/sb-admin.min.js"></script>
+<script src="static/js/personalizado.js"></script>
+<script src="static/Framework/chart.js/Chart.min.js"></script>
+<script src="static/js/Chart-Area-Configuracion/chart-area-resultados.js"></script>
+<script src="static/js/Chart-Pie-Configuracion/chart-pie-resultados.js"></script>
+
+</body>
+
+</html>

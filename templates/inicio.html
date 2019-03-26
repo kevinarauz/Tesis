@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Inicio</title>
+    <link rel="shortcut icon" href="static/img/UGicon.png"/>
+    <meta charset="utf-8">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS-->
+    <link href="static/Framework/boostrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Paquetes de Iconos-->
+    <link href="static/Framework/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Boostrap Datatables CSS-->
+    <link href="static/Framework/datatables/css/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="static/css/sb-admin.min.css" rel="stylesheet">
+
+    <link href="static/css/personalizado.css" rel="stylesheet">
+</head>
+
+<body id="page-top" onload="mueveReloj()">
+
+<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+    <ul class="navbar-nav ">
+        <a class="navbar-brand mr-1" href="#" style="text-decoration: none;">Menú</a>
+        <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+            <i class="fas fa-bars" style="text-decoration: none;"></i>
+        </button>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <div class="" id="reloj"
+                 style="color:#fff; width: 150px;font-size:14px;text-align: right"></div>
+        </li>
+    </ul>
+</nav>
+
+<div id="wrapper">
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+        <br>
+        <li class="nav-item">
+            <a class="mx-auto" rel="home" href="http://www.ug.edu.ec/" title="" style="text-decoration: none;">
+                <img class="rounded mx-auto d-block" style="max-width:50px; margin-top: -7px;" src="/static/img/ug.png">
+                <p class="text-center center-block">Universidad de Guayaquil</p></a>
+            </a>
+        </li>
+
+        <li class="nav-item active">
+            <a class="nav-link" href="/Inicio">
+                <i class="fas fa-fw fa-home"></i>
+                <span>Inicio</span>
+            </a>
+        </li>
+
+        <li class="nav-item ">
+            <a class="nav-link" href="/Introducción">
+                <i class="fas fa-fw fa-chalkboard-teacher"></i>
+                <span>Introducción</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Problemática">
+                <i class="fas fa-question"></i>
+                <span>Problemática</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/MarcoLógico">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Marco Lógico</span>
+            </a>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="MetodologiaInvestigacion" role="button"
+               data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-microscope"></i>
+                <span>Métodologia de la investigacion</span>
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="MetodologiaInvestigacion">
+                <!--<h6 class="dropdown-header">Métodologia:</h6>-->
+                <a class="dropdown-item" href="/TipoDeInvestigación">Tipo de Investigación</a>
+                <a class="dropdown-item" href="/PoblaciónMuestra">Población y Muestra</a>
+                <a class="dropdown-item" href="/GráficosEstadísticos">Gráficos Estadísticos</a>
+                <a class="dropdown-item" href="/TablaDeEncuestas">Tabla de Encuestas</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="MarcoTeorico" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-book"></i>
+                <span>Marco Teórico</span>
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="MarcoTeorico">
+                <a class="dropdown-item" href="/Metodología">Metodología</a>
+                <a class="dropdown-item" href="/TablaDeVariables">Tabla de Variables</a>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Resultados">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Resultados</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Bibliografía">
+                <i class="fas fa-fw fa-brain"></i>
+                <span>Bibliografía</span></a>
+        </li>
+        <li class="nav-item">
+            <div class="row">
+                <div class="col-lg-12 mx-auto">
+                    <div class="rounded mx-auto d-block visitas" id="sfcz95z6hw9t4s77cjmz4699t9amdaghkwg">
+                        <script type="text/javascript"
+                                src="https://counter9.wheredoyoucomefrom.ovh/private/counter.js?c=z95z6hw9t4s77cjmz4699t9amdaghkwg&down=async"
+                                async>
+                        </script>
+                    </div>
+                </div>
+                <br>
+                <div class="col-lg-12 mx-auto">
+                    <a class="mx-auto" rel="Visitas" href="" title="" style="text-decoration: none;">
+                        <p class="text-center center-block">Visitas</p>
+                    </a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+
+        </li>
+    </ul>
+
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <header class="masthead text-center text-white d-flex">
+                <div class="container my-auto">
+                    <div class="row">
+                        <div class="col-lg-12 mx-auto">
+                            <h1 class="text-uppercase" style="color: #0056b3">
+                                <strong>Página Web Informativa</strong>
+                            </h1>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="container my-auto">
+                <div class="col-lg-6 mx-auto">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="static/img/inicio1.jpg" alt="primera imagen">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="static/img/inicio2.jpg" alt="segunda imagen">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="static/img/inicio3.jpg" alt="tercera imagen">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                           data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Anterior</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                           data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Siguiente</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="container my-auto">
+                <div class="col-lg-12 mx-auto">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p class="text-justify mb-5" style="color: black">
+                                Luego del terremoto que aconteció en Ecuador en el año 2016 se vio la necesidad de
+                                realizar el análisis de las causas que llevaron a que exista morbimortalidad en el
+                                cantón Pedernales provincia de Manabí, esto debido a que el epicentro del terremoto
+                                se localizó en el lugar antes mencionado. Los expertos sobre el manejo de riesgos en
+                                desastres naturales al momento de tomar decisiones sobre qué acciones llevar a cabo
+                                después de la ocurrencia de este evento catastrófico sienten incertidumbre debido a
+                                que existen diversos factores que intervienen en la morbimortalidad de las personas
+                                que fueron víctimas del terremoto, además de saber cómo actuar de mejor manera en el
+                                momento de que vuelva a ocurrir un desastre de igual o similar magnitud.<br><br>
+                                Teniendo en cuenta esta problemática se propuso aplicar las metodologías de Redes
+                                Neuronales Artificiales (RNA) y Neutrosofía, donde esta última sirve mucho para el
+                                manejo de la incertidumbre y vaguedad debido a que es una generalización de la
+                                lógica borrosa en contraparte de la lógica clásica que no realiza lo anterior
+                                mencionado. Se realizó el análisis causal entre todos los factores que tuvieron que
+                                ver con las muertes y enfermedades que dejaron el evento sísmico de gran magnitud
+                                mediante la herramienta de software Mental Modeler donde se elaboró un Mapa
+                                Cognitivo Neutrosófico (MCN) el cual nos da como resultado del análisis de los pesos
+                                de los factores la centralidad que nos indica cuál es el orden de importancia a
+                                tener en consideración sobre el problema, en este caso entre todos los factores
+                                analizados el mas importante a tener en consideración son las destrucciones de las
+                                edificaciones de concreto, esto debido a que estas no aplican las normas de
+                                construcciones adecuadas para lugares geográficos con alto riesgo sísmico, Ecuador
+                                es uno de los países que se encuentra en el cinturón de fuego del Pacífico.
+                            </p>
+                        </div>
+                        <!--
+                        <div class="col-lg-6">
+                            <div class="image"><img src="/static/img/Pedernales.jpg" alt="" class="img-fluid"></div>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+
+        <!-- Sticky Footer -->
+        <footer class="sticky-footer">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright © keviin.pythonanywhere.com 2019</span>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.content-wrapper -->
+</div>
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- JavaScript-->
+<script src="static/Framework/jquery/jquery.min.js"></script>
+<script src="static/Framework/boostrap/js/bootstrap.bundle.min.js"></script>
+<script src="static/Framework/jquery-easing/jquery.easing.min.js"></script>
+<script src="static/js/sb-admin.min.js"></script>
+<script src="static/js/personalizado.js"></script>
+<script src="static/js/carousel.js"></script>
+<!--<script src="static/js/Grafico.js"></script>-->
+</body>
+
+</html>
