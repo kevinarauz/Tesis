@@ -82,5 +82,9 @@ def Bibliografia():
     cur.close()
     return render_template('Bibliografía.html', bibliografias=datos)
 
+@app.route('/Simulacion')
+def Simulacion():
+    return render_template('Simulacion.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

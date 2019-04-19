@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Inicio</title>
+    <link rel="shortcut icon" href="static/img/UGicon.png"/>
+    <meta charset="utf-8">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS-->
+    <link href="static/Framework/boostrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Paquetes de Iconos-->
+    <link href="static/Framework/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Boostrap Datatables CSS-->
+    <!-- <link href="static/Framework/datatables/css/dataTables.bootstrap4.css" rel="stylesheet">-->
+
+    <!-- Custom styles for this template-->
+    <link href="static/css/sb-admin.min.css" rel="stylesheet">
+
+    <link href="static/css/personalizado.css" rel="stylesheet">
+    <script src="static/Framework/jquery/jquery.min.js"></script>
+
+    <!-- online -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css"
+          type="text/css"/>
+
+</head>
+
+<body id="page-top" onload="mueveReloj()">
+
+<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+    <ul class="navbar-nav ">
+        <a class="navbar-brand mr-1" href="#" style="text-decoration: none;">Menú</a>
+        <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+            <i class="fas fa-bars" style="text-decoration: none;"></i>
+        </button>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <div class="" id="reloj"
+                 style="color:#fff; width: 150px;font-size:14px;text-align: right"></div>
+        </li>
+    </ul>
+</nav>
+
+<div id="wrapper">
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+        <br>
+        <li class="nav-item">
+            <a class="mx-auto" rel="home" href="http://www.ug.edu.ec/" title="" style="text-decoration: none;">
+                <img class="rounded mx-auto d-block" style="max-width:50px; margin-top: -7px;" src="/static/img/ug.png">
+                <p class="text-center center-block">Universidad de Guayaquil</p>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Inicio">
+                <i class="fas fa-fw fa-home"></i>
+                <span>Inicio</span>
+            </a>
+        </li>
+
+        <li class="nav-item ">
+            <a class="nav-link" href="/Introducción">
+                <i class="fas fa-fw fa-chalkboard-teacher"></i>
+                <span>Introducción</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Problemática">
+                <i class="fas fa-question"></i>
+                <span>Problemática</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/MarcoLógico">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Marco Lógico</span>
+            </a>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="MetodologiaInvestigacion" role="button"
+               data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-microscope"></i>
+                <span>Métodologia de la investigacion</span>
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="MetodologiaInvestigacion">
+                <!--<h6 class="dropdown-header">Métodologia:</h6>-->
+                <a class="dropdown-item" href="/TipoDeInvestigación">Tipo de Investigación</a>
+                <a class="dropdown-item" href="/PoblaciónMuestra">Población y Muestra</a>
+                <a class="dropdown-item" href="/GráficosEstadísticos">Gráficos Estadísticos</a>
+                <a class="dropdown-item" href="/TablaDeEncuestas">Tabla de Encuestas</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="MarcoTeorico" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-book"></i>
+                <span>Marco Teórico</span>
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="MarcoTeorico">
+                <a class="dropdown-item" href="/Metodología">Metodología</a>
+                <a class="dropdown-item" href="/TablaDeVariables">Tabla de Variables</a>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Resultados">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Resultados</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Bibliografía">
+                <i class="fas fa-fw fa-brain"></i>
+                <span>Bibliografía</span></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="/Simulacion">
+                <i class="fas fa-fw fa-rocket"></i>
+                <span>Aplicativo del Modelo Creado</span></a>
+        </li>
+        <li class="nav-item">
+            <div class="row">
+                <div class="col-lg-12 mx-auto">
+                    <div class="rounded mx-auto d-block visitas" id="sfcz95z6hw9t4s77cjmz4699t9amdaghkwg">
+                        <script type="text/javascript"
+                                src="https://counter9.wheredoyoucomefrom.ovh/private/counter.js?c=z95z6hw9t4s77cjmz4699t9amdaghkwg&down=async"
+                                async>
+                        </script>
+                    </div>
+                </div>
+                <br>
+                <div class="col-lg-12 mx-auto">
+                    <a class="mx-auto" rel="Visitas" href="" title="" style="text-decoration: none;">
+                        <p class="text-center center-block">Visitas</p>
+                    </a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+
+        </li>
+    </ul>
+
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <header class="masthead text-center text-white d-flex">
+                <div class="container my-auto">
+                    <div class="row">
+                        <div class="col-lg-12 mx-auto">
+                            <h1 class="text-uppercase" style="color: #0056b3">
+                                <strong>Aplicativo</strong>
+                            </h1>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="container my-auto">
+                <div class="col-lg-12 mx-auto">
+                    <form name="frm" method="post" action="#">
+                        <div class="form-group">
+                            <div class="col-lg-6 mx-auto">
+                                <h3>Agregar factores a evaluar</h3>
+                                <label>Factores:</label>
+                                <select class="selectpicker form-control" name="variables[]" id="variables" size="1">
+                                    <option>kevin</option>
+                                    <option>joan</option>
+                                    <option>diego</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-lg-6 mx-auto">
+                                <label>Dato:</label>
+                                <input type="text" class="form-control" placeholder="Ingresar el factor"
+                                       name="txtDato"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group ">
+                            <div class="col-lg-6 mx-auto">
+                                <input class="btn btn-primary" type="button" onclick="agregar();"
+                                       value="Agregar Variable"/>
+                                <input class="btn btn-primary" type="button" onclick="eliminar();"
+                                       value="Eliminar Variable"/>
+                                <input class="btn btn-primary" type="button" onclick="modificar();"
+                                       value="Modificar Variable"/>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group ">
+                            <div class="col-lg-12 mx-auto">
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-target="#mostrarmodal"
+                                        onclick="pasarModal()">
+                                    <!-- quitamos el data-toggle="modal" para que funcione el javascript creado para el modal -->
+                                    Agregar nueva relación
+                                </button>
+                                <button type="button" class="btn btn-success"
+                                        onclick="cargarModelo()">
+                                    <!-- quitamos el data-toggle="modal" para que funcione el javascript creado para el modal -->
+                                    Cargar Modelo Propuesto
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- tabla de relaciones -->
+            <div class="container-fluid">
+                <!-- DataTable Relaciones -->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fas fa-table"></i>
+                        Tabla de relaciones
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="example" class="table table-bordered display nowrap" style="width:100%">
+                                <thead>
+                                <tr>
+                                    <th>Factor</th>
+                                    <th>Relación</th>
+                                    <th>Peso</th>
+                                    <th>Tipo de Factor</th>
+                                </tr>
+                                </thead>
+                                <!--
+                                <tfoot>
+                                <tr>
+                                    <th>Factor</th>
+                                    <th>Relación</th>
+                                    <th>Peso</th>
+                                    <th>Tipo de Factor</th>
+                                    <th>Editar</th>
+                                    <th>borrar</th>
+                                </tr>
+                                </tfoot>
+                                -->
+                                <tbody>
+                                <!--
+                                <tr>
+                                    <td>asd</td>
+                                    <td>hhh</td>
+                                    <td>23</td>
+                                    <td>diduso</td>
+                                    <td>editar</td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger deletebtn" id="deletebtn"><span
+                                                class="fas fa-eraser"></span></button>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td>kevin</td>
+                                    <td>maria</td>
+                                    <td>14</td>
+                                    <td>diduso</td>
+                                    <td>editar</td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger deletebtn"><span
+                                                class="fas fa-eraser"></span></button>
+                                    </td>
+                                </tr>
+                                -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    <button id="generar" class="btn btn-primary" onclick="calcularCentralidad()">Generar Centralidad
+                    </button>
+                </p>
+                <!-- DataTable Centralidad -->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fas fa-table"></i>
+                        Tabla de centralidad
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="centralidad" class="table table-bordered display nowrap" style="width:100%">
+                                <thead>
+                                <tr>
+                                    <th>Factor</th>
+                                    <th>Indegree</th>
+                                    <th>Outdegree</th>
+                                    <th>Total degree</th>
+                                    <th>De-neutrosificacion</th>
+                                    <th>Mediana valores</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- /.container-fluid -->
+        </div>
+    </div>
+</div>
+
+<!-- Modal Editar-->
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title custom_align">Editar Relación</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <form name="formularioModal2" method="post" action="#">
+                    <div class="form-group">
+                        <label>Factores</label>
+                        <select class="selectpicker form-control" name="variablesFinales[]" id="variablesFinales2"
+                                size="1" onchange="cambiarFactores()" data-width='100%'>
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Relación</label>
+                        <select name="auxVariables[]" id="auxVariables2" size="1"
+                                class="selectpicker form-control" id="sel22" onLoad="pasar()"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="slidecontainer">
+                            <label>Peso</label><br>
+                            <input type="range" min="-1.00" max="1.00" value="0" class="slider" id="entradaRango2"
+                                   step=".01">
+                            <p>
+                                Valor: <span id="salidaRango2">0</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Tipo de Factor</label><br>
+                        <select class="selectpicker form-control" name="tipoFactor[]" id="tipoFactor2"
+                                onchange="aplicarInferencia()" size="1">
+                            <option>Difuso</option>
+                            <option>Indeterminado</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer ">
+                <button type="button" class="btn btn-warning btn-lg" data-dismiss="modal" onclick="actualizarRelacion()"
+                        style="width: 100%;"><span
+                        class="glyphicon glyphicon-ok-sign"></span> Actualizar
+                </button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<!-- Modal Borrar -->
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title custom_align" id="">Borrar Relación</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+
+            </div>
+            <div class="modal-body">
+
+                <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Desea borrar esta
+                    relación?
+                </div>
+
+            </div>
+            <div class="modal-footer ">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="eliminarRelacion()"><span
+                        class="glyphicon glyphicon-ok-sign"></span> Yes
+                </button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><span
+                        class="glyphicon glyphicon-remove"></span> No
+                </button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="mostrarmodalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mostrarmodalLabel">Agregar nueva relación</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form name="formularioModal" method="post" action="#">
+                    <div class="form-group">
+                        <label>Factores</label>
+                        <select class="selectpicker form-control" name="variablesFinales[]" id="variablesFinales"
+                                size="1" onchange="cambiarFactores()" data-width='100%'>
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Relación</label>
+                        <select name="auxVariables[]" id="auxVariables" size="1"
+                                class="selectpicker form-control" id="sel2"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="slidecontainer">
+                            <label>Peso</label><br>
+                            <input type="range" min="-1.00" max="1.00" value="0" class="slider" id="entradaRango"
+                                   step=".01">
+                            <p>
+                                Valor: <span id="salidaRango">0</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Tipo de Factor</label><br>
+                        <select class="selectpicker form-control" name="tipoFactor[]" id="tipoFactor"
+                                onchange="aplicarInferencia()" size="1">
+                            <option>Difuso</option>
+                            <option>Indeterminado</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="agregarRelacion()">Guardar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<script language="javascript">
+
+/*
+//Buscar dentro del datatable
+$(document).ready(function() {
+    // Setup - add a text input to each footer cell
+    $('#dataTable tfoot th').each( function () {
+        var title = $(this).text();
+        $(this).html( '<input type="text" placeholder="Buscar '+title+'" />' );
+    } );
+
+    // DataTable
+    var table = $('#dataTable').DataTable();
+
+    // Apply the search
+    table.columns().every( function () {
+        var that = this;
+
+        $( 'input', this.footer() ).on( 'keyup change', function () {
+            if ( that.search() !== this.value ) {
+                that
+                    .search( this.value )
+                    .draw();
+            }
+        } );
+    } );
+} );
+*/
+
+</script>
+
+<!-- JavaScript-->
+<script src="static/Framework/jquery/jquery.min.js"></script>
+<script src="static/Framework/boostrap/js/bootstrap.bundle.min.js"></script>
+<script src="static/Framework/jquery-easing/jquery.easing.min.js"></script>
+<script src="static/js/sb-admin.min.js"></script>
+<script type="text/javascript" src="static/js/personalizado.js"></script>
+<script type="text/javascript" src="static/js/configComponentesAplicativo.js"></script>
+<script type="text/javascript" src="static/js/datatableAplicativo.js"></script>
+<script type="text/javascript" src="static/js/util.js"></script>
+<script src="static/js/carousel.js"></script>
+<!--<script src="static/js/Grafico.js"></script>-->
+<script src="static/Framework/datatables/js/jquery.dataTables.js"></script>
+<script src="static/Framework/datatables/js/dataTables.bootstrap4.js"></script>
+<script src="static/js/datatables.js"></script>
+
+
+<!-- online -->
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+</body>
+
+</html>
