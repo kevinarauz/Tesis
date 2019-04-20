@@ -258,6 +258,7 @@
 			    logitudMatrizRelacion=logitudMatrizRelacion+1;
 			}
 
-function limpiarImportarModelo(){
-					$(this).parents(".input-file").find('input').val('');
-}
+			//para limpiar el importar modelo el file
+			function limpiarImportarModelo(){
+                //aqui el codigo
+			}

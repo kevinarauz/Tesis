@@ -513,6 +513,10 @@ function cargarCsv(){
 					}
 					//$('#tableMain').append(newrow);
 				  }//alert(logitudMatrizRelacion);
+				  calcularCentralidad();
+				generarGrafico();
                 }
+
 				rdr.readAsText($("#inputfile")[0].files[0]);
+
 }
