@@ -6,14 +6,19 @@ var auxfactorCentralidadGrafico = document.getElementsByName("factorCentralidad[
 var auxMedianaValoresGrafico = document.getElementsByName("medianavalores[]");
 var factor =[];
 var centralidad=[];
-console.log("longitud: "+auxfactorCentralidadGrafico.length);
-console.log("longitud: "+auxMedianaValoresGrafico.length);
 for (var i=0; i<auxfactorCentralidadGrafico.length; i++) {
-    factor[i]="'"+auxfactorCentralidadGrafico[i].innerHTML+"'";
+    factor[i]=auxfactorCentralidadGrafico[i].innerHTML;
     centralidad[i]=auxMedianaValoresGrafico[i].innerHTML;
-    console.log("factor: "+factor[i]+" centralidad");
-}
 
+}
+var maximo= 0;
+var minimo=0;
+maximo=Math.round(centralidad[0])+1;
+minimo=Math.round(centralidad[auxfactorCentralidadGrafico.length-1]);
+if(minimo<0){
+    minimo=minimo-1;
+}
+console.log("maximo: "+maximo+" minimo: "+minimo);
 // Area Chart Example
 var ctx = document.getElementById("GraficoResultadosAplicativo");
 
@@ -45,14 +50,14 @@ var myLineChart = new Chart(ctx, {
           display: false
         },
         ticks: {
-          maxTicksLimit: 20
+          maxTicksLimit: (auxfactorCentralidadGrafico.length+1)
         }
       }],
       yAxes: [{
         ticks: {
-          min: 0.0,
-          max: 4,
-          maxTicksLimit: 5
+          min: minimo,
+          max: maximo,
+          maxTicksLimit: (auxfactorCentralidadGrafico.length+1)
         },
         gridLines: {
           display: true
