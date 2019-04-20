@@ -459,8 +459,14 @@ function calcularDesneutrosificacion(){
 function calcularMedianaValores(){
 	var total=0;
 	for (var i=0; i<auxfactorCentralidad.length; i++) {
-		total=((parseFloat(TotalDesneutrosificacionDifuso[i])+parseFloat(TotalDesneutrosificacionNeutrosofico[i]))/2);
-		auxMedianaValores[i]=total.toFixed(2);
+	    console.log();
+	    if(inNeutrosofico[i]==0 && outNeutrosofico[i]==0){
+	        total=TotalDesneutrosificacionDifuso[i];
+		    auxMedianaValores[i]=total;
+	    }else{
+            total=((parseFloat(TotalDesneutrosificacionDifuso[i])+parseFloat(TotalDesneutrosificacionNeutrosofico[i]))/2);
+		    auxMedianaValores[i]=total.toFixed(2);
+	    }
 	}
 }
 

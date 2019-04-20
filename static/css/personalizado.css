@@ -47,3 +47,10 @@
   background: #4CAF50;
   cursor: pointer;
 }
+
+.trans{
+  width: 400px;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+}

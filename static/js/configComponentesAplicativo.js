@@ -258,4 +258,6 @@
 			    logitudMatrizRelacion=logitudMatrizRelacion+1;
 			}
 
-
+function limpiarImportarModelo(){
+					$(this).parents(".input-file").find('input').val('');
+}
