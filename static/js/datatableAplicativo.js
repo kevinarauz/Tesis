@@ -459,7 +459,6 @@ function calcularDesneutrosificacion(){
 function calcularMedianaValores(){
 	var total=0;
 	for (var i=0; i<auxfactorCentralidad.length; i++) {
-	    console.log();
 	    if(inNeutrosofico[i]==0 && outNeutrosofico[i]==0){
 	        total=TotalDesneutrosificacionDifuso[i];
 		    auxMedianaValores[i]=total;
