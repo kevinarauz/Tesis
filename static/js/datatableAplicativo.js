@@ -291,7 +291,8 @@ function calcularCentralidad(){
 			var medianavalores='<p name="medianavalores[]">'+auxMedianaValores[i]+'</p>';
 			t.row.add( [factorCentralidad,indeegree,outdeegree,totaldeegree,desneutrosificacion,medianavalores]).draw();
 		}
-		generarGrafico();
+		generarGrafico();//grafico de barras
+		generarGraficaPastel();//grafico de pastel
 	}
 }
 

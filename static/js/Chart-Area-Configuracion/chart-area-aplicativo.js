@@ -24,11 +24,10 @@ if(minimo<0){
 var ctx = document.getElementById("GraficoResultadosAplicativo").getContext('2d');
 if (window.grafica) {
 	window.grafica.clear();
-	window.grafica.destroy();
-	console.log("destruido");
+	window.grafica.destroy();console.log("destruido");
 }
 
-var myLineChart = new Chart(ctx, {
+window.grafica = new Chart(ctx, {
   type: 'bar',
   data: {
     labels: factor,
