@@ -1,4 +1,5 @@
 function generarGrafico(){
+
 // Set new default font family and font color to mimic Bootstrap's default styling
 Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#292b2c';
@@ -18,9 +19,14 @@ minimo=Math.round(centralidad[auxfactorCentralidadGrafico.length-1]);
 if(minimo<0){
     minimo=minimo-1;
 }
-console.log("maximo: "+maximo+" minimo: "+minimo);
-// Area Chart Example
-var ctx = document.getElementById("GraficoResultadosAplicativo");
+//console.log("maximo: "+maximo+" minimo: "+minimo);
+// Grafico de barras
+var ctx = document.getElementById("GraficoResultadosAplicativo").getContext('2d');
+if (window.grafica) {
+	window.grafica.clear();
+	window.grafica.destroy();
+	console.log("destruido");
+}
 
 var myLineChart = new Chart(ctx, {
   type: 'bar',
