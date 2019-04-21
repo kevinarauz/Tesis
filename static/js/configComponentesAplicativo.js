@@ -62,6 +62,8 @@
 			    if(combo=="Difuso"){
 			        CargarRangoEntrada();
 			        document.getElementById("entradaRango").disabled = false;
+			        var auxEscala = document.getElementById("escalaRango");
+                    auxEscala.innerHTML = "Sin relación";
 			    }else{
 			        //salidaRango.innerHTML=aleatorio;
 			        //document.getElementById('entradaRango').value=aleatorio;
@@ -69,6 +71,8 @@
 			        document.getElementById("entradaRango").disabled = true;
 			        document.getElementById('entradaRango').value=0;
 			        salidaRango.innerHTML="Indeterminado";
+			        var auxEscala = document.getElementById("escalaRango");
+                    auxEscala.innerHTML = "Sin relación";
 			    }
 			}
 
