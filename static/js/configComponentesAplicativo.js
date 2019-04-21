@@ -245,7 +245,7 @@
                     success: function(data){
                         //console.log(data[i]['peso']);
                         for(i=0;i<data.length;i++){
-                            console.log(data[i]['peso']);
+                            //console.log(data[i]['peso']);
                             var factor='<p name="factor[]">'+data[i]['factor']+"</p>";
 					        var relacion='<p name="relacion[]">'+data[i]['relacion']+"</p>";
 					        var peso='<p name="peso[]">'+data[i]['peso']+"</p>";
