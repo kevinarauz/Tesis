@@ -224,24 +224,30 @@
 
 				}
 			}
+
+		/*	function lee_json() {
+            $.getJSON("/obtenerRelaciones", function(datos) {
+                alert("Dato: " + datos["dato"]);
+                $.each(datos["relacion"], function(idx,primo) {
+                    alert("Numero primo: " + primo);
+                });
+            });
+
+        }*/
             function cargarModelo(){
-               // borrarTodaTablaRelacion();
-	            //borrarTodaTablaCentralidad();
-                var factor="kevin";
-	            var relacion="joseline";
-	            var peso="2.5";
-	            var tipo="dif";
-			    var table = $('#example').DataTable();
-			    table.row.add( [factor,relacion,peso,tipo,editar,borrar]).draw();
-
-			    var factor="diego";
-	            var relacion="maria";
-	            var peso="2.5";
-	            var tipo="dif";
-			    var table = $('#example').DataTable();
-			    table.row.add( [factor,relacion,peso,tipo]).draw();
-
-			    logitudMatrizRelacion=logitudMatrizRelacion+2;
+                borrarTodaTablaRelacion();
+	            //lee_json();
+	            $.ajax({
+                    url: "/obtenerRelaciones",
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data){
+                    //console.log(data[0]['relacion']);
+                        for(i=0;i<data.length;i++){
+                            console.log(data[i]['relacion']);
+                        }
+                    }
+                });
             }
 
 			function agregarRelacion() {
