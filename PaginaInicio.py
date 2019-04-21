@@ -1,4 +1,4 @@
-from flask import Flask, render_template, make_response, request
+from flask import Flask, render_template,jsonify, make_response, request
 from flask_mysqldb import MySQL
 
 # Inicialización
@@ -85,6 +85,20 @@ def Bibliografia():
 @app.route('/Simulacion')
 def Simulacion():
     return render_template('Simulacion.html')
+
+@app.route('/obtenerRelaciones', methods=['GET'])
+def obtenerRelaciones():
+    cur = mysql.connection.cursor()
+    cur.execute('SELECT * FROM relaciones')
+    datos = cur.fetchall()
+    cur.close()
+    payload = []
+    content = {}
+    for result in datos:
+        content = {'factor': result[1], 'relacion': result[2], 'peso:': result[3],'escala' : result[4],'tipo' : result[5]}
+        payload.append(content)
+        content = {}
+    return jsonify(payload)
 
 if __name__ == '__main__':
     app.run(debug=True)

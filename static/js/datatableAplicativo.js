@@ -165,52 +165,6 @@ $(document).ready(function() {
     $('#addRow').click();
 } );*/
 
-function agregarModelo(){
-	borrarTodaTablaRelacion();
-	var t = $('#example').DataTable();
-	var factor='<p name="factor[]">'+'B'+'</p>';
-	var relacion='<p name="relacion[]">'+'D'+'</p>';
-	var peso='<p name="peso[]">'+'0.58'+'</p>';
-	var tipo='<p name="tipo[]">'+'Difuso'+'</p>';
-	t.row.add( [factor,relacion,peso,tipo]).draw();
-
-	var t = $('#example').DataTable();
-	var factor='<p name="factor[]">'+'A'+'</p>';
-	var relacion='<p name="relacion[]">'+'B'+'</p>';
-	var peso='<p name="peso[]">'+'0.25'+'</p>';
-	var tipo='<p name="tipo[]">'+'Difuso'+'</p>';
-	t.row.add( [factor,relacion,peso,tipo]).draw();
-
-	var t = $('#example').DataTable();
-	var factor='<p name="factor[]">'+'A'+'</p>';
-	var relacion='<p name="relacion[]">'+'C'+'</p>';
-	var peso='<p name="peso[]">'+'Indeterminado'+'</p>';
-	var tipo='<p name="tipo[]">'+'Indeterminado'+'</p>';
-	t.row.add( [factor,relacion,peso,tipo]).draw();
-
-	var t = $('#example').DataTable();
-	var factor='<p name="factor[]">'+'A'+'</p>';
-	var relacion='<p name="relacion[]">'+'E'+'</p>';
-	var peso='<p name="peso[]">'+'Indeterminado'+'</p>';
-	var tipo='<p name="tipo[]">'+'Indeterminado'+'</p>';
-	t.row.add( [factor,relacion,peso,tipo]).draw();
-
-	var t = $('#example').DataTable();
-	var factor='<p name="factor[]">'+'A'+'</p>';
-	var relacion='<p name="relacion[]">'+'F'+'</p>';
-	var peso='<p name="peso[]">'+'0.50'+'</p>';
-	var tipo='<p name="tipo[]">'+'Difuso'+'</p>';
-	t.row.add( [factor,relacion,peso,tipo]).draw();
-
-	var t = $('#example').DataTable();
-	var factor='<p name="factor[]">'+'G'+'</p>';
-	var relacion='<p name="relacion[]">'+'A'+'</p>';
-	var peso='<p name="peso[]">'+'0.30'+'</p>';
-	var tipo='<p name="tipo[]">'+'Difuso'+'</p>';
-	t.row.add( [factor,relacion,peso,tipo]).draw();
-
-	logitudMatrizRelacion=logitudMatrizRelacion+6;
-}
 
 function borrarTodaTablaRelacion(){
 	logitudMatrizRelacion=0;
@@ -266,13 +220,14 @@ $(document).ready(function() {
 		logitudMatrizRelacion=logitudMatrizRelacion-1;
     } );
 } );
-function calcularCentralidad(){
 
+
+function calcularCentralidad(){
 	borrarTodaTablaCentralidad();
 	limpiarArrays();
 	if(logitudMatrizRelacion == 0){
 		alert("No existen relaciones.");
-		//var ctx = document.getElementById("GraficoResultadosAplicativo").getContext('2d');
+        limpiarGraficoBarras();
 	}else{
 
 		var t = $('#centralidad').DataTable();

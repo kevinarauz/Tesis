@@ -22,11 +22,11 @@ if(minimo<0){
 //console.log("maximo: "+maximo+" minimo: "+minimo);
 // Grafico de barras
 var ctx = document.getElementById("GraficoResultadosAplicativo").getContext('2d');
+//limpiarGraficoBarras();
 if (window.grafica) {
 	window.grafica.clear();
-	window.grafica.destroy();console.log("destruido");
+	window.grafica.destroy();//console.log("destruido");
 }
-
 window.grafica = new Chart(ctx, {
   type: 'bar',
   data: {
@@ -71,6 +71,14 @@ window.grafica = new Chart(ctx, {
     },
   },
 });
+}
+function limpiarGraficoBarras(){
+    var ctx = document.getElementById("GraficoResultadosAplicativo").getContext('2d');
+    if (window.grafica) {
+	    window.grafica.clear();
+	    window.grafica.destroy();//console.log("destruido");
+    }
+    window.grafica = new Chart(ctx, {});
 }
 /*
 var mybarChart = new Chart(ctx, {
