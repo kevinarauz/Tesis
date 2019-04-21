@@ -89,12 +89,18 @@ def Simulacion():
 @app.route('/obtenerRelaciones', methods=['GET'])
 def obtenerRelaciones():
     cur = mysql.connection.cursor()
-    cur.execute('SELECT * FROM relaciones')
+    cur.execute('SELECT * FROM relaciones where idmodelo=1')
     datos = cur.fetchall()
     cur.close()
     payload = []
     content = {}
     for result in datos:
+        peso=result[3];
+        if peso=="Indeterminado" :
+            peso=result[3];
+        else:
+            peso==result[3];
+
         content = {'factor': result[1], 'relacion': result[2], 'peso:': result[3],'escala' : result[4],'tipo' : result[5]}
         payload.append(content)
         content = {}

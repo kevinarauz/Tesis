@@ -218,18 +218,19 @@ $(document).ready(function() {
     $('#button').click( function () {
         table.row('.selected').remove().draw( false );//jbuborrar fila seleccionada
 		logitudMatrizRelacion=logitudMatrizRelacion-1;
+		calcularCentralidad();
+	    generarGrafico();
     } );
-} );
+});
 
 
 function calcularCentralidad(){
 	borrarTodaTablaCentralidad();
 	limpiarArrays();
+	limpiarGraficoBarras();
 	if(logitudMatrizRelacion == 0){
-		alert("No existen relaciones.");
-        limpiarGraficoBarras();
+		//alert("No existen relaciones.");
 	}else{
-
 		var t = $('#centralidad').DataTable();
 		calcularFactorCentralidad();
 		calcularIndeegree();
@@ -472,7 +473,7 @@ function cargarCsv(){
 					//$('#tableMain').append(newrow);
 				  }//alert(logitudMatrizRelacion);
 				  calcularCentralidad();
-				generarGrafico();
+				  generarGrafico();
                 }
 
 				rdr.readAsText($("#inputfile")[0].files[0]);

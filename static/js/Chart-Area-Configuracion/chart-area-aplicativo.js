@@ -22,11 +22,11 @@ if(minimo<0){
 //console.log("maximo: "+maximo+" minimo: "+minimo);
 // Grafico de barras
 var ctx = document.getElementById("GraficoResultadosAplicativo").getContext('2d');
-//limpiarGraficoBarras();
-if (window.grafica) {
+limpiarGraficoBarras();
+/*if (window.grafica) {
 	window.grafica.clear();
 	window.grafica.destroy();//console.log("destruido");
-}
+}*/
 window.grafica = new Chart(ctx, {
   type: 'bar',
   data: {
@@ -60,7 +60,7 @@ window.grafica = new Chart(ctx, {
       }],
       yAxes: [{
         ticks: {
-          min: minimo,
+          min: 0.0,
           max: maximo,
           maxTicksLimit: (auxfactorCentralidadGrafico.length+1)
         },
