@@ -183,6 +183,10 @@
 				frm.variables.selectedIndex = 0;
 			}
 
+			function validarRelaciones(){
+
+			}
+
 			function eliminar() {
 				var combo = document.getElementById("variables");
 				if(frm.variables.options.length==0){
@@ -245,16 +249,25 @@
 			    var factor='<p name="factor[]">'+document.getElementById("variablesFinales").value+'</p>';
 	            var relacion='<p name="relacion[]">'+document.getElementById("auxVariables").value+'</p>';
 	            var peso=document.getElementById("entradaRango").value;
+	            var escala=document.getElementById("escalaRango");
+	            console.log(escala);
 	            if(peso==0){
 	                peso='<p name="peso[]">'+'Indeterminado'+'</p>';
+	                escala='<p name="escala[]">'+'Indeterminado'+'</p>';
 	            }else{
 	                peso='<p name="peso[]">'+peso+'</p>';
+	                escala='<p name="escala[]">'+escala.innerHTML+'</p>';
 	            }
 	            var tipo='<p name="tipo[]">'+document.getElementById("tipoFactor").value+'</p>';
 			    //ingresamos los valores a la tabla
 			    var table = $('#example').DataTable();
-			    table.row.add( [factor,relacion,peso,tipo]).draw();
-			    logitudMatrizRelacion=logitudMatrizRelacion+1;
+			    if(document.getElementById("entradaRango").value==0){
+			        alert("No se agrego relacion ya que no existe.");
+			    }else{
+			       table.row.add( [factor,relacion,peso,escala,tipo]).draw();
+			       logitudMatrizRelacion=logitudMatrizRelacion+1;
+			    }
+
 			}
 
 			//para limpiar el importar modelo el file
