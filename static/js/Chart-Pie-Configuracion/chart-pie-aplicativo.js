@@ -4,6 +4,8 @@ Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSyste
 Chart.defaults.global.defaultFontColor = '#292b2c';
 //Chart.defaults.global.defaultFontSize = 18;
 
+
+
 // Grafico Pastel
 var randomScalingFactor = function() {
   return Math.round(Math.random() * 100);
@@ -20,11 +22,11 @@ var config = {
   data: {
     datasets: [{
       data: [
-        1,
-        41,
-        1,
-        16,
-        14,
+        -2.1,
+        4.1,
+        1.6,
+        -2.6,
+        2.4,
       ],
       backgroundColor: [
         "#F7464A",

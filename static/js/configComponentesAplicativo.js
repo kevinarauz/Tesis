@@ -6,42 +6,33 @@
 
 			slider.oninput = function() {
 				salidaRango.innerHTML = this.value;
-			/*	var escala = document.getElementById("escalaRango");
-				if(this.value>=0.75 && this.value<=1){
+				var escala = document.getElementById("escalaRango");
+				if(salidaRango.innerHTML==0){
+				    escala.innerHTML = "Sin relación";
+				}else if(this.value>=0.88 && this.value<=1){
 					escala.innerHTML = "Positivamente muy fuerte";
-				}else if(this.value>=0.50 && this.value<0.75){
+				}else if(this.value>=0.63 && this.value<=0.87){
 					escala.innerHTML = "Positivamente fuerte";
-				}else if(this.value>=0.25 && this.value<0.50){
+				}else if(this.value>=0.38 && this.value<=0.62){
 					escala.innerHTML = "Positivamente media";
-				}else if(this.value>=0 && this.value<0.25){
+				}else if(this.value>=0.13 && this.value<=0.37){
 					escala.innerHTML = "Positivamente débil ";
 				}
 				
 				
-				else if(this.value>=0.50 && this.value<=1){
-					escala.innerHTML = "Negativamente media ";
-				}else if(this.value>=0.25 && this.value<=0.75){
-					escala.innerHTML = "Negativamente débil ";
-				}else if(this.value>=0 && this.value<=0.50){
-					escala.innerHTML = "Cero";
-				}else if(this.value>=0 && this.value<="0.25"){
-					escala.innerHTML = "Cero";
-				}
-				
-				else if(this.value>="-0.75" && this.value<="-1"){
+				else if(this.value>="-0.88" && this.value<="-1"){
 					escala.innerHTML = "Negativamente muy fuerte";
-				}else if(this.value>="-0.50" && this.value<="-1"){
+				}else if(this.value>="-0.63" && this.value<="-0.87"){
 					escala.innerHTML = "Negativamente fuerte";
-				}else if(this.value>="-0.25" && this.value<="-0.75"){
+				}else if(this.value>="-0.38" && this.value<="-0.62"){
 					escala.innerHTML = "Negativamente media";
-				}else if(this.value>="0" && this.value<="-0.50"){
-					escala.innerHTML = "Negativamente débil";
-				}else if(this.value>=0 && this.value<="- 0.25"){
+				}else if(this.value>="-0.13" && this.value<="-0.37"){
+					escala.innerHTML = "Negativamente debil";
+				}else if(this.value>="0.12" && this.value<="-0.12"){
+				    escala.innerHTML = "Cero";
+				}else{
 					escala.innerHTML = "Cero";
 				}
-				else{
-					escala.innerHTML = "";
-				}*/
 			}
 
 			function eliminarSelectVariables(){
@@ -136,8 +127,12 @@
 			
 			function CargarRangoEntrada()
 			{
+			    //inicializa los pesos
 				document.getElementById('entradaRango').value=0; //barra de progreso del rango
 				salidaRango.innerHTML = 0; //valor de salida que aparece cuando se mueve el rango
+				//inicializa las escala de significancia
+                var auxEscala = document.getElementById("escalaRango");
+                auxEscala.innerHTML = "Sin relación";
 			}
 			
 			function cambiarFactores(){
