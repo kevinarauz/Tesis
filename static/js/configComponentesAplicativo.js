@@ -236,12 +236,12 @@
         }*/
             function cargarModelo(){
                 borrarTodaTablaRelacion();
-                var t = $('#example').DataTable();
 	            //lee_json();
 	            $.ajax({
                     url: "/obtenerRelaciones",
                     type: "GET",
                     dataType: "json",
+                    //async : false,
                     success: function(data){
                         //console.log(data[i]['peso']);
                         for(i=0;i<data.length;i++){
@@ -251,12 +251,14 @@
 					        var peso='<p name="peso[]">'+data[i]['peso']+"</p>";
 					        var escala='<p name="escala[]">'+data[i]['escala']+"</p>";
 					        var tipo='<p name="tipo[]">'+data[i]['tipo']+"</p>";
+					        var t = $('#example').DataTable();
 						    t.row.add( [factor,relacion,peso,escala,tipo]).draw();
 					        logitudMatrizRelacion=logitudMatrizRelacion+1;
                         }
+                        calcularCentralidad();
+                        generarGrafico();
                     }
                 });
-                generarGrafico();
             }
 
 			function agregarRelacion() {
