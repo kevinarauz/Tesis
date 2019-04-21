@@ -49,7 +49,7 @@
 </nav>
 
 <div id="wrapper">
-    <!-- Sidebar -->
+    <!-- Menu de la pagina web -->
     <ul class="sidebar navbar-nav">
         <br>
         <li class="nav-item">
@@ -152,7 +152,7 @@
 
         </li>
     </ul>
-
+    <!-- Contenido del aplicativo -->
     <div id="content-wrapper">
         <div class="container-fluid">
             <header class="masthead text-center text-white d-flex">
@@ -167,7 +167,7 @@
                     </div>
                 </div>
             </header>
-            <!-- Configuraciones de variables -->
+            <!-- Configuraciones de variables y botones del datatable -->
             <div class="container my-auto">
                 <div class="col-lg-12 mx-auto">
                     <form name="frm" method="post" action="#">
@@ -220,11 +220,9 @@
                                 <button type="button" id="button" class="btn btn-danger btn-responsive">Borrar fila
                                     Seleccionada
                                 </button>
-
-
                                 <!-- Boton cargar modelo -->
-                                <button type="button" class="btn btn-success btn-responsive"
-                                        onclick="cargarModelo()">
+                                <button type="button" class="btn btn-success btn-responsive" data-toggle="modal"
+                                        data-target="#CargarModelo">
                                     <!-- quitamos el data-toggle="modal" para que funcione el javascript creado para el modal -->
                                     Cargar Modelo Propuesto
                                 </button>
@@ -312,7 +310,7 @@
                 <!-- Mensaje de alerta de la inferencia neutrosofica -->
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
                     <strong>Nota:</strong> Al generar una nueva centralidad las poderaciones dadas a los factores con
-                    indeterminacion pueden variar debido inferencia neutrosofica.
+                    indeterminacion pueden variar debido a la inferencia neutrosofica.
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -380,6 +378,36 @@
                 </div>-->
             </div>
             <!-- /.container-fluid -->
+        </div>
+    </div>
+</div>
+
+<!-- Modal Cargar Modelo Propuesto -->
+<div class="modal fade" id="CargarModelo" tabindex="-1" role="dialog" aria-labelledby="LabelModalModelo"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="LabelModalModelo">Cargar Modelo Propuesto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Nota de advertencia -->
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Nota:</strong> Al cargar el modelo propuesto se eliminaran las relaciones actuales.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" title="guardar" onclick="cargarModelo()"
+                        data-dismiss="modal">cargar
+                </button>
+            </div>
         </div>
     </div>
 </div>
@@ -603,23 +631,6 @@ $(document).ready(function() {
     } );
 } );
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 
 <!-- JavaScript-->
