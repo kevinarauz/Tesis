@@ -95,13 +95,13 @@ def obtenerRelaciones():
     payload = []
     content = {}
     for result in datos:
-        peso=result[3];
-        if peso=="Indeterminado" :
-            peso=result[3];
+        peso=result[3]
+        if peso == "Indeterminado" :
+            peso=result[3]
         else:
-            peso==result[3];
-
-        content = {'factor': result[1], 'relacion': result[2], 'peso:': result[3],'escala' : result[4],'tipo' : result[5]}
+            peso=float(result[3])
+        print(peso)
+        content = {'factor': result[1], 'relacion': result[2], 'peso:': peso,'escala' : result[4],'tipo' : result[5]}
         payload.append(content)
         content = {}
     return jsonify(payload)

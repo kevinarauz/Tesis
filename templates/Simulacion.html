@@ -249,8 +249,8 @@
                             <table id="example" class="table table-bordered display nowrap" style="width:100%">
                                 <thead>
                                 <tr>
-                                    <th>Factor</th>
-                                    <th>Relación</th>
+                                    <th>Factor Receptor</th>
+                                    <th>Factor Emisor</th>
                                     <th>Peso</th>
                                     <th>Escala</th>
                                     <th>Tipo de Factor</th>
@@ -547,7 +547,7 @@
                 <form name="formularioModal" method="post" action="#">
                     <!-- Selección de variables de los factores -->
                     <div class="form-group">
-                        <label>Factores</label>
+                        <label>Factor Receptor</label>
                         <select class="selectpicker form-control" name="variablesFinales[]" id="variablesFinales"
                                 size="1" onchange="cambiarFactores()" data-width='100%'>
 
@@ -555,7 +555,7 @@
                     </div>
                     <!-- Selección de variables de relación -->
                     <div class="form-group">
-                        <label>Relación</label>
+                        <label>Factor Emisor</label>
                         <select name="auxVariables[]" id="auxVariables" size="1"
                                 class="selectpicker form-control" id="sel2"></select>
                     </div>
@@ -574,7 +574,7 @@
                     </div>
                     <!-- Mensaje de alerta para agregar una nueva relación -->
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        <strong>Nota:</strong> Tiene que haber un peso mayor a 0 para que exista una nueva relación.
+                        <strong>Nota:</strong> Tiene que existir un peso mayor a 0 para que exista una nueva relación.
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

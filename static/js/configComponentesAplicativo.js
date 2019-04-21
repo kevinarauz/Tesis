@@ -155,7 +155,7 @@
 			
 			function agregar () {
 				if ( document.frm.txtDato.value.length == 0 ) {
-					alert("Debes escribir algo");
+					alert("Escriba el nombre del factor.");
 				} else {
 					var nuevoItem = document.frm.txtDato.value; //obtenemos el valor que agregamos por teclado
 					var combo = document.getElementById("variables");//obtenemos un select
@@ -199,7 +199,7 @@
 
 			function modificar() {
 				if ( document.frm.txtDato.value.length == 0 ) {
-					alert("Debes escribir algo");
+					alert("Debes escribir el factor a modificar");
 				} else {
 					var nuevoItem = document.frm.txtDato.value; //obtenemos el valor que agregamos por teclado
 					var combo = document.getElementById("variables");//obtenemos un select
