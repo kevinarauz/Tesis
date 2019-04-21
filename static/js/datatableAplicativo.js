@@ -272,6 +272,7 @@ function calcularCentralidad(){
 	limpiarArrays();
 	if(logitudMatrizRelacion == 0){
 		alert("No existen relaciones.");
+		//var ctx = document.getElementById("GraficoResultadosAplicativo").getContext('2d');
 	}else{
 
 		var t = $('#centralidad').DataTable();
@@ -292,7 +293,7 @@ function calcularCentralidad(){
 			t.row.add( [factorCentralidad,indeegree,outdeegree,totaldeegree,desneutrosificacion,medianavalores]).draw();
 		}
 		generarGrafico();//grafico de barras
-		generarGraficaPastel();//grafico de pastel
+		//generarGraficaPastel();//grafico de pastel
 	}
 }
 
