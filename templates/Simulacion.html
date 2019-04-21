@@ -516,6 +516,7 @@
             </div>
             <div class="modal-body">
                 <form name="formularioModal" method="post" action="#">
+                    <!-- Selección de variables de los factores -->
                     <div class="form-group">
                         <label>Factores</label>
                         <select class="selectpicker form-control" name="variablesFinales[]" id="variablesFinales"
@@ -523,12 +524,13 @@
 
                         </select>
                     </div>
+                    <!-- Selección de variables de relación -->
                     <div class="form-group">
                         <label>Relación</label>
                         <select name="auxVariables[]" id="auxVariables" size="1"
                                 class="selectpicker form-control" id="sel2"></select>
                     </div>
-
+                    <!-- rango de valores para el peso -->
                     <div class="form-group">
                         <div class="slidecontainer">
                             <label>Peso</label><br>
@@ -541,6 +543,14 @@
                             </p>
                         </div>
                     </div>
+                    <!-- Mensaje de alerta para agregar una nueva relación -->
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>Nota:</strong> Tiene que haber un peso mayor a 0 para agregar una nueva relación.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- Selección del tipo de ponderación difuso o neutrosofico -->
                     <div class="form-group">
                         <label>Tipo de Factor</label><br>
                         <select class="selectpicker form-control" name="tipoFactor[]" id="tipoFactor"
@@ -592,6 +602,8 @@ $(document).ready(function() {
     } );
 } );
 */
+
+
 
 
 
