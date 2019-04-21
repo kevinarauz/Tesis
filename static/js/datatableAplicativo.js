@@ -429,8 +429,10 @@ function calcularMedianaValores(){
 }
 
 function cargarCsv(){
+	eliminarSelectVariables();
 	borrarTodaTablaRelacion();
 	borrarTodaTablaCentralidad();
+	limpiarGraficoBarras();
 	//limpiarArrays();
 	  var rdr = new FileReader();
                 rdr.onload = function (e) {
@@ -472,7 +474,9 @@ function cargarCsv(){
 					}
 					//$('#tableMain').append(newrow);
 				  }//alert(logitudMatrizRelacion);
+
 				  calcularCentralidad();
+				  agregarVariablesCentralidad();
 				  generarGrafico();
                 }
 

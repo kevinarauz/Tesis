@@ -152,14 +152,30 @@
 				}
 				x.remove(x.selectedIndex);
 			}
-			
+
+			function agregarVariablesCentralidad(){
+			    var auxfactorCentralidad = document.getElementsByName("factorCentralidad[]");
+			    var combo = document.getElementById("variables");
+			    for(var i=0; i<auxfactorCentralidad.length; i++){
+                    //var opcion = document.createElement("opcion");
+                    //opcion.text = auxfactorCentralidad[i].innerHTML;
+                    //auxVariables.add(opcion);
+
+                    var option = document.createElement("option");
+					combo.options.add(option, i);
+					combo.options[i].value = auxfactorCentralidad[i].innerHTML;
+				    combo.options[i].innerText = auxfactorCentralidad[i].innerHTML;
+
+			    }
+
+			}
+
 			function agregar () {
 				if ( document.frm.txtDato.value.length == 0 ) {
 					alert("Escriba el nombre del factor.");
 				} else {
 					var nuevoItem = document.frm.txtDato.value; //obtenemos el valor que agregamos por teclado
 					var combo = document.getElementById("variables");//obtenemos un select
-
 
 					var valida=1;
 					//alert("Dato "+combo.length);
@@ -236,6 +252,7 @@
         }*/
             function cargarModelo(){
                 borrarTodaTablaRelacion();
+                eliminarSelectVariables();
 	            //lee_json();
 	            $.ajax({
                     url: "/obtenerRelaciones",
@@ -256,6 +273,7 @@
 					        logitudMatrizRelacion=logitudMatrizRelacion+1;
                         }
                         calcularCentralidad();
+                        agregarVariablesCentralidad();
                         generarGrafico();
                     }
                 });
@@ -285,6 +303,7 @@
 			        table.row.add( [factor,relacion,peso,escala,tipo]).draw();
 			        logitudMatrizRelacion=logitudMatrizRelacion+1;
 			        calcularCentralidad();
+			        agregarVariablesCentralidad();
 	                generarGrafico();
 			    }
 
