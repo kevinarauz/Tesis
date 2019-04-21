@@ -496,15 +496,16 @@ function cargarCsv(){
 					var factor='<p name="factor[]">'+columns[0].replace(/['"]+/g, '')+"</p>";
 					var relacion='<p name="relacion[]">'+columns[1].replace(/['"]+/g, '')+"</p>";
 					var peso='<p name="peso[]">'+columns[2].replace(/['"]+/g, '')+"</p>";
-					var tipo='<p name="tipo[]">'+columns[3].replace(/['"]+/g, '')+"</p>";
-                    if(colcount!=4) {
+					var escala='<p name="escala[]">'+columns[3].replace(/['"]+/g, '')+"</p>";
+					var tipo='<p name="tipo[]">'+columns[4].replace(/['"]+/g, '')+"</p>";
+                    if(colcount!=5) {
                         //incorrect number of columns
                         //newrow="<tr class='badrowcount'><td>incorrect number of columns</td><td></td><td></td><td></td></tr>"
 						//alert("Numero de columnas incorrecto.");
 						row=therows.length;
                     } else {
 						var t = $('#example').DataTable();
-						t.row.add( [factor,relacion,peso,tipo]).draw();
+						t.row.add( [factor,relacion,peso,escala,tipo]).draw();
 						logitudMatrizRelacion=logitudMatrizRelacion+1;
 						/*newrow="<tr>"+
 						"<td> "+  columns[0].replace(/['"]+/g, '') +  "</td>"+
