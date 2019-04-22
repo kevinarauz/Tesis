@@ -279,6 +279,19 @@
                 });
             }
 
+            function comprobarRelacion(){
+                var auxFactor = document.getElementsByName("factor[]");
+	            var auxRelacion = document.getElementsByName("relacion[]");
+	            var factor = document.getElementById("variablesFinales").value;
+	            var relacion = document.getElementById("auxVariables").value;
+	            for (var i=0; i<logitudMatrizRelacion; i++) {
+                    if(auxFactor[i].innerHTML==factor && auxRelacion[i].innerHTML==relacion){
+                        return 0;
+                    }
+	            }
+	            return 1;
+            }
+
 			function agregarRelacion() {
 			    //creamos los datos
 			    var factor='<p name="factor[]">'+document.getElementById("variablesFinales").value+'</p>';
@@ -286,25 +299,30 @@
 	            var peso=document.getElementById("entradaRango").value;
 	            var escala=document.getElementById("escalaRango");
 	            var valida=document.getElementById("salidaRango");
+
 	            //console.log(valida.innerHTML);
 	            if(valida.innerHTML==0){
-			        alert("No se agrego relacion ya que no existe.");
+			        alert("No se agrego relación ya que no existe.");
 			    }else{
-	                if(peso==0){
-	                    peso='<p name="peso[]">'+'Indeterminado'+'</p>';
-	                    escala='<p name="escala[]">'+'Indeterminado'+'</p>';
+			        var validar = comprobarRelacion();
+			        if(validar==1){
+	                    if(peso==0){
+	                        peso='<p name="peso[]">'+'Indeterminado'+'</p>';
+	                        escala='<p name="escala[]">'+'Indeterminado'+'</p>';
+	                    }else{
+	                        peso='<p name="peso[]">'+peso+'</p>';
+	                        escala='<p name="escala[]">'+escala.innerHTML+'</p>';
+	                    }
+	                    var tipo='<p name="tipo[]">'+document.getElementById("tipoFactor").value+'</p>';
+			            //ingresamos los valores a la tabla
+			            var table = $('#example').DataTable();
+			            table.row.add( [factor,relacion,peso,escala,tipo]).draw();
+			            logitudMatrizRelacion=logitudMatrizRelacion+1;
+			            calcularCentralidad();
+	                    generarGrafico();
 	                }else{
-	                    peso='<p name="peso[]">'+peso+'</p>';
-	                    escala='<p name="escala[]">'+escala.innerHTML+'</p>';
+	                    alert("No se agrego la relación ya existes.");
 	                }
-	                var tipo='<p name="tipo[]">'+document.getElementById("tipoFactor").value+'</p>';
-			        //ingresamos los valores a la tabla
-			        var table = $('#example').DataTable();
-			        table.row.add( [factor,relacion,peso,escala,tipo]).draw();
-			        logitudMatrizRelacion=logitudMatrizRelacion+1;
-			        calcularCentralidad();
-			        agregarVariablesCentralidad();
-	                generarGrafico();
 			    }
 
 			}
