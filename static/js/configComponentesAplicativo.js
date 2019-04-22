@@ -263,7 +263,7 @@
                         //console.log(data.length);
                         for(i=0;i<data.length;i++){
                             //console.log(data[i]['peso']);
-                            var factor='<p name="factor[]" maxlength="150">'+data[i]['factor']+"</p>";
+                            var factor='<p name="factor[]" >'+data[i]['factor']+"</p>";
 					        var relacion='<p name="relacion[]">'+data[i]['relacion']+"</p>";
 					        var peso='<p name="peso[]">'+data[i]['peso']+"</p>";
 					        var escala='<p name="escala[]">'+data[i]['escala']+"</p>";
