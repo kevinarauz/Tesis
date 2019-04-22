@@ -59,6 +59,7 @@ function InicializarArrays(){
 $(document).ready(function() {
     $('#example').DataTable( {
 		//"order": [[ 0, "desc" ]],//ordenar el primer factor desc ya que comienza por 0
+		"pageLength": 50,
 		language: {
         "decimal": "",
         "emptyTable": "No hay información",

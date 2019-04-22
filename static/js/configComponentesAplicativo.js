@@ -272,14 +272,14 @@
 						    t.row.add( [factor,relacion,peso,escala,tipo]).draw();
 					        logitudMatrizRelacion=logitudMatrizRelacion+1;
                         }
-                        var auxFactorEmisor = document.getElementsByName("factor[]");
-                        console.log(auxFactorEmisor.length);
+                        //var auxFactorEmisor = document.getElementsByName("factor[]");
+                        //console.log(auxFactorEmisor.length);
                       /*  for (var j=0; j<auxFactorEmisor.length; j++) {
                             console.log(auxFactorEmisor[j].innerHTML);
                         }*/
-                        //calcularCentralidad();
-                        //agregarVariablesCentralidad();
-                        //generarGrafico();
+                        calcularCentralidad();
+                        agregarVariablesCentralidad();
+                        generarGrafico();
                     }
                 });
             }
