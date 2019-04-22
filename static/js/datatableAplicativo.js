@@ -232,6 +232,7 @@ function calcularCentralidad(){
 		//alert("No existen relaciones.");
 	}else{
 		var t = $('#centralidad').DataTable();
+		//console.log(logitudMatrizRelacion);
 		calcularFactorCentralidad();
 		calcularIndeegree();
 		calcularOutdeegree();
@@ -263,6 +264,9 @@ function calcularFactorCentralidad(){
 			auxfactorCentralidad[i]=auxFactorEmisor[i].innerHTML;
 		    contadorAux=contadorAux+1;
 		}else{
+			//console.log(auxfactorCentralidad.length);
+			//console.log(auxFactorEmisor.length);
+
 			for (var j=0; j<auxfactorCentralidad.length; j++) {
 				if(auxfactorCentralidad[j]==auxFactorEmisor[i].innerHTML){
 					valida=2;
@@ -279,6 +283,8 @@ function calcularFactorCentralidad(){
 		}
 	}
 	valida=2;
+	console.log(auxfactorCentralidad.length);
+	console.log(auxFactorRelacion.length);
 	for (var i=0; i<logitudMatrizRelacion; i++) {
 		for (var j=0; j<auxfactorCentralidad.length; j++) {
 			if(auxfactorCentralidad[j]==auxFactorRelacion[i].innerHTML){

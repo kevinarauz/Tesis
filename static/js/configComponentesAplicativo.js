@@ -260,10 +260,10 @@
                     dataType: "json",
                     //async : false,
                     success: function(data){
-                        //console.log(data[i]['peso']);
-                        for(i=0;i<data.length;i++){
+                        //console.log(data.length);
+                        for(i=0;i<data.length-20;i++){
                             //console.log(data[i]['peso']);
-                            var factor='<p name="factor[]">'+data[i]['factor']+"</p>";
+                            var factor='<p name="factor[]" maxlength="150">'+data[i]['factor']+"</p>";
 					        var relacion='<p name="relacion[]">'+data[i]['relacion']+"</p>";
 					        var peso='<p name="peso[]">'+data[i]['peso']+"</p>";
 					        var escala='<p name="escala[]">'+data[i]['escala']+"</p>";
@@ -272,20 +272,25 @@
 						    t.row.add( [factor,relacion,peso,escala,tipo]).draw();
 					        logitudMatrizRelacion=logitudMatrizRelacion+1;
                         }
-                        calcularCentralidad();
-                        agregarVariablesCentralidad();
-                        generarGrafico();
+                        var auxFactorEmisor = document.getElementsByName("factor[]");
+                        console.log(auxFactorEmisor.length);
+                      /*  for (var j=0; j<auxFactorEmisor.length; j++) {
+                            console.log(auxFactorEmisor[j].innerHTML);
+                        }*/
+                        //calcularCentralidad();
+                        //agregarVariablesCentralidad();
+                        //generarGrafico();
                     }
                 });
             }
 
             function comprobarRelacion(){
-                var auxFactor = document.getElementsByName("factor[]");
-	            var auxRelacion = document.getElementsByName("relacion[]");
-	            var factor = document.getElementById("variablesFinales").value;
-	            var relacion = document.getElementById("auxVariables").value;
+                var xauxFactor = document.getElementsByName("factor[]");
+	            var xauxRelacion = document.getElementsByName("relacion[]");
+	            var xfactor = document.getElementById("variablesFinales").value;
+	            var xrelacion = document.getElementById("auxVariables").value;
 	            for (var i=0; i<logitudMatrizRelacion; i++) {
-                    if(auxFactor[i].innerHTML==factor && auxRelacion[i].innerHTML==relacion){
+                    if(xauxFactor[i].innerHTML==xfactor && xauxRelacion[i].innerHTML==xrelacion){
                         return 0;
                     }
 	            }
