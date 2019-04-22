@@ -103,6 +103,7 @@ $(document).ready(function() {
     $('#centralidad').DataTable( {
 		"order": [[ 5, "desc" ]],//ordenar el primer factor desc ya que comienza por 0
 		"aoColumnDefs": [ { 'bSortable': false, 'aTargets': [ 0,1,2,3,4,5 ] } ],//desabilitar columnas
+		"pageLength": 50,
         language: {
         "decimal": "",
         "emptyTable": "No hay información",
