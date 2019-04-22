@@ -16,7 +16,7 @@
 				}else if(this.value>=0.38 && this.value<=0.62){
 					escala.innerHTML = "Positivamente media";
 				}else if(this.value>=0.13 && this.value<=0.37){
-					escala.innerHTML = "Positivamente débil ";
+					escala.innerHTML = "Positivamente débil";
 				}
 				
 				
