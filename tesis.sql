@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-03-2019 a las 00:10:06
+-- Tiempo de generación: 22-04-2019 a las 19:32:16
 -- Versión del servidor: 10.1.34-MariaDB
 -- Versión de PHP: 7.2.7
 
@@ -583,6 +583,83 @@ INSERT INTO `factores` (`id`, `factor`, `descripcion`) VALUES
 (19, 'replicas', 'Alteración emocional/psicológica de las personas debido a estar pendientes a las múltiples réplicas que ocurren luego del terremoto.'),
 (20, 'enf_pre', 'Enfermedades físicas como mentales que las personas padecían antes del terremoto.');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `modelo`
+--
+
+DROP TABLE IF EXISTS `modelo`;
+CREATE TABLE `modelo` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `fecha` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `modelo`
+--
+
+INSERT INTO `modelo` (`id`, `nombre`, `fecha`) VALUES
+(1, 'terremoto pedernales 2016', '21/04/2019');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `relaciones`
+--
+
+DROP TABLE IF EXISTS `relaciones`;
+CREATE TABLE `relaciones` (
+  `id` int(11) NOT NULL,
+  `factor` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `relacion` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `peso` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `escala` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `tipo` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `idmodelo` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `relaciones`
+--
+
+INSERT INTO `relaciones` (`id`, `factor`, `relacion`, `peso`, `escala`, `tipo`, `idmodelo`) VALUES
+(1, 'Construcciones de concreto', 'Auscencia de normas de construcción', '0.58', 'Positivamente media', 'Difuso', 1),
+(2, 'Construcciones de concreto', 'Cercanía a las costas marítimas', '0.25', 'Positivamente débil', 'Difuso', 1),
+(3, 'Atrapado bajo escombros', 'Construcciones de concreto', '1', 'Positivamente muy fuerte', 'Difuso', 1),
+(4, 'Atrapado bajo escombros', 'Ocurrencia de terremoto en la noche', 'Indeterminado', 'Indeterminado', 'Indeterminado', 1),
+(5, 'Atrapado bajo escombros', 'Sobrepoblación', '0.53', 'Positivamente media', 'Difuso', 1),
+(6, 'Zona urbana', 'Construcciones de concreto', '0.61', 'Positivamente media', 'Difuso', 1),
+(7, 'Zona urbana', 'Sobrepoblación', '0.81', 'Positivamente fuerte', 'Difuso', 1),
+(8, 'Destrucción de centros de salud', 'Construcciones de concreto', '0.33', 'Positivamente débil', 'Difuso', 1),
+(9, 'Destrucción de centros de salud', 'Auscencia de normas de construcción', '0.67', 'Positivamente fuerte', 'Difuso', 1),
+(10, 'Destrucción de carreteras y medios de comunicación', 'Construcciones de concreto', '0.22', 'Positivamente débil', 'Difuso', 1),
+(11, 'Destrucción de carreteras y medios de comunicación', 'Auscencia de normas de construcción', '0.58', 'Positivamente media', 'Difuso', 1),
+(12, 'Destrucción de carreteras y medios de comunicación', 'Cercanía a las costas marítimas', '0.36', 'Positivamente débil', 'Difuso', 1),
+(13, 'Destrucción de carreteras y medios de comunicación', 'Ocurrencia de terremoto en la noche', 'Indeterminado', 'Indeterminado', 'Indeterminado', 1),
+(14, 'Falta de instrumentos médicos', 'Destrucción de centros de salud', '0.50', 'Positivamente media', 'Difuso', 1),
+(15, 'Condiciones endémicas', 'Zona urbana', 'Indeterminado', 'Indeterminado', 'Indeterminado', 1),
+(16, 'Condiciones endémicas', 'Contacto con cadáveres', '0.33', 'Positivamente débil', 'Difuso', 1),
+(17, 'Condiciones endémicas', 'Interrupción de servicios basicos', '0.33', 'Positivamente débil', 'Difuso', 1),
+(18, 'Condiciones endémicas', 'Lluvias', '0.36', 'Positivamente débil', 'Difuso', 1),
+(19, 'Condiciones endémicas', 'Familiar muerto', '0.28', 'Positivamente débil', 'Difuso', 1),
+(20, 'Condiciones endémicas', 'Temor por réplicas', '0.28', 'Positivamente débil', 'Difuso', 1),
+(21, 'Contacto con cadáveres', 'Atrapado bajo escombros', '0.17', 'Positivamente débil', 'Difuso', 1),
+(22, 'Contacto con cadáveres', 'Destrucción de centros de salud', '0.28', 'Positivamente débil', 'Difuso', 1),
+(23, 'Contacto con cadáveres', 'Falta de instrumentos médicos', '0.28', 'Positivamente débil', 'Difuso', 1),
+(24, 'Contacto con cadáveres', 'Sobrepoblación', '0.50', 'Positivamente media', 'Difuso', 1),
+(25, 'Interrupción de servicios basicos', 'Zona urbana', '0.44', 'Positivamente media', 'Difuso', 1),
+(26, 'Interrupción de servicios basicos', 'Ocurrencia de terremoto en la noche', 'Indeterminado', 'Indeterminado', 'Indeterminado', 1),
+(27, 'Hacinamiento y saneamiento', 'Interrupción de servicios basicos', '0.47', 'Positivamente media', 'Difuso', 1),
+(28, 'Desaseo de alimentos', 'Interrupción de servicios basicos', '0.56', 'Positivamente media', 'Difuso', 1),
+(29, 'Desaseo de alimentos', 'Hacinamiento y saneamiento', '0.58', 'Positivamente media', 'Difuso', 1),
+(30, 'Estancamiento de agua', 'Lluvias', '0.36', 'Positivamente débil', 'Difuso', 1),
+(31, 'Enfermedades preexistentes', 'Condiciones endémicas', '0.39', 'Positivamente media', 'Difuso', 1),
+(32, 'Enfermedades preexistentes', 'Estancamiento de agua', '0.61', 'Positivamente media', 'Difuso', 1),
+(33, 'Enfermedades preexistentes', 'Familiar muerto', '0.83', 'Positivamente fuerte', 'Difuso', 1),
+(34, 'Enfermedades preexistentes', 'Temor por réplicas', '0.47', 'Positivamente media', 'Difuso', 1);
+
 --
 -- Índices para tablas volcadas
 --
@@ -606,6 +683,18 @@ ALTER TABLE `factores`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `modelo`
+--
+ALTER TABLE `modelo`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `relaciones`
+--
+ALTER TABLE `relaciones`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -614,6 +703,18 @@ ALTER TABLE `factores`
 --
 ALTER TABLE `factores`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT de la tabla `modelo`
+--
+ALTER TABLE `modelo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `relaciones`
+--
+ALTER TABLE `relaciones`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

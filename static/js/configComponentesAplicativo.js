@@ -261,7 +261,7 @@
                     //async : false,
                     success: function(data){
                         //console.log(data.length);
-                        for(i=0;i<data.length-20;i++){
+                        for(i=0;i<data.length;i++){
                             //console.log(data[i]['peso']);
                             var factor='<p name="factor[]" maxlength="150">'+data[i]['factor']+"</p>";
 					        var relacion='<p name="relacion[]">'+data[i]['relacion']+"</p>";
