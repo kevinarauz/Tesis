@@ -8,7 +8,7 @@ var auxMedianaValoresGrafico = document.getElementsByName("medianavalores[]");
 var factor =[];
 var centralidad=[];
 for (var i=0; i<auxfactorCentralidadGrafico.length; i++) {
-    factor[i]=auxfactorCentralidadGrafico[i].innerHTML;
+    factor[i]=formatLabel(auxfactorCentralidadGrafico[i].innerHTML,"10px");
     centralidad[i]=auxMedianaValoresGrafico[i].innerHTML;
 
 }
@@ -33,12 +33,24 @@ window.grafica = new Chart(ctx, {
     labels: factor,
     datasets: [{
       label: "Resultado",
+      //backgroundColor: [Chart.colorschemes.brewer['Paired12'],Chart.colorschemes.brewer['office.Atlas6']],
+      //backgroundColor: Chart.colorschemes.brewer['office.Atlas6'],
       backgroundColor: ['#007bff', '#dc3545', '#8B4513', '#28a745', '#ADFF2F','#F08080','#4B0082','#7FFFD4','#DAA520','#FF1493','#483D8B','#FFE4C4','#000000','#8A2BE2','#D2691E','#696969','#8B0000','#FFFF00','#2F4F4F','#556B2F'],
       borderColor: "rgba(2,117,216,1)",
       data: centralidad,
     }],
   },
   options: {
+  /*plugins: {
+
+      colorschemes: {
+
+        scheme: 'office.Atlas6',
+
+      }
+
+    },*/
+
   legend: {
       display: false,
       position: 'bottom',
@@ -69,9 +81,10 @@ window.grafica = new Chart(ctx, {
         }
       }],
     },
-  },
+    },
 });
 }
+
 function limpiarGraficoBarras(){
     var ctx = document.getElementById("GraficoResultadosAplicativo").getContext('2d');
     if (window.grafica) {
@@ -80,40 +93,48 @@ function limpiarGraficoBarras(){
     }
     window.grafica = new Chart(ctx, {});
 }
-/*
-var mybarChart = new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: ['cons_con','atrap_esc','cond_end','enf_pre','cen_sal','zon_urb','n_pers','norm_con','serv_bas','carr_trans','cont_cad','des_alim','terr_noc','fam_muer','hac_san','estc_agua','cont_mar','int_med','replicas','lluvias'],
-    datasets: [{
-      label: '# of Votes',
-      backgroundColor: "#000080",
-      data: [80]
-    }, {
-      label: '# of Votes2',
-      backgroundColor: "#d3d3d3",
-      data: [90]
-    }, {
-      label: '# of Votes3',
-      backgroundColor: "#add8e6",
-      data: [45]
-    }],
-  },
 
-  options: {
-    legend: {
-      display: true,
-      position: 'bottom',
-      labels: {
-        fontColor: "#000080",
-      }
-    },
-    scales: {
-      yAxes: [{
-        ticks: {
-          beginAtZero: true
+function formatLabel(str, maxwidth){
+    var sections = [];
+    var words = str.split(" ");
+    var temp = "";
+
+    words.forEach(function(item, index){
+        if(temp.length > 0)
+        {
+            var concat = temp + ' ' + item;
+
+            if(concat.length > maxwidth){
+                sections.push(temp);
+                temp = "";
+            }
+            else{
+                if(index == (words.length-1))
+                {
+                    sections.push(concat);
+                    return;
+                }
+                else{
+                    temp = concat;
+                    return;
+                }
+            }
         }
-      }]
-    }
-  }
-});*/
+
+        if(index == (words.length-1))
+        {
+            sections.push(item);
+            return;
+        }
+
+        if(item.length < maxwidth) {
+            temp = item;
+        }
+        else {
+            sections.push(item);
+        }
+
+    });
+
+    return sections;
+}
