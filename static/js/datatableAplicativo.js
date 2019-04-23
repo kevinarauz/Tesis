@@ -56,6 +56,78 @@ function InicializarArrays(){
 	}
 }
 
+function validaPaginacion10(){
+/*
+}
+    $(document).ready(function() {
+$('#example').DataTable( {
+        "pageLength": 10,
+     });
+});
+    $(document).ready(function() {
+$('#centralidad').DataTable( {
+        "pageLength": 10,
+     });
+});*/
+}
+
+function validaPaginacion50(){
+/*
+$(document).ready(function() {
+$('#example').DataTable( {
+        "pageLength": 50,
+     });
+});
+    $(document).ready(function() {
+$('#centralidad').DataTable( {
+        "pageLength": 50,
+     });
+});*/
+}
+
+$(document).ready(function() {
+    $('#datatableVariables').DataTable( {
+		//"order": [[ 0, "desc" ]],//ordenar el primer factor desc ya que comienza por 0
+		"pageLength": 50,
+		language: {
+        "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+        "infoEmpty": "Mostrando 0 a 0 de 0 Entradas",
+        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Entradas",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+		}
+		},
+        dom: 'Bfrtip',
+        buttons: [
+            'copy',
+			{extend:'csvHtml5',title: 'Matriz de Relacion'},
+			{extend:'excelHtml5',title: 'Matriz de Relacion'},
+			{extend:'pdfHtml5',title: 'Matriz de Relacion'},
+			{extend:'print',title: 'Matriz de Relacion'}
+        ],
+        dom: "<'row'<'col-md-3'l><'col-md-6 text-center'B><'col-md-3'f>>" +
+         "<'row'<'col-md-12'tr>>" +
+         "<'row'<'col-md-5'i><'col-md-7'p>>",
+        drawCallback: function(settings) {
+			if (!$('.datatable').parent().hasClass('table-responsive')) {
+				$('.datatable').wrap("<div class='table-responsive'></div>");
+			}
+		}
+    } );
+});
+
 $(document).ready(function() {
     $('#example').DataTable( {
 		//"order": [[ 0, "desc" ]],//ordenar el primer factor desc ya que comienza por 0
@@ -230,6 +302,7 @@ function calcularCentralidad(){
 	borrarTodaTablaCentralidad();
 	limpiarArrays();
 	limpiarGraficoBarras();
+	//validaPaginacion50();
 	if(logitudMatrizRelacion == 0){
 		//alert("No existen relaciones.");
 	}else{
@@ -253,6 +326,7 @@ function calcularCentralidad(){
 		}
 		generarGrafico();//grafico de barras
 		//generarGraficaPastel();//grafico de pastel
+		validaPaginacion10();
 	}
 }
 

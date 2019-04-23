@@ -33,6 +33,7 @@
 
 <body id="page-top" onload="mueveReloj()">
 
+<!-- reloj -->
 <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
     <ul class="navbar-nav ">
         <a class="navbar-brand mr-1" href="#" style="text-decoration: none;">Menú</a>
@@ -48,6 +49,7 @@
     </ul>
 </nav>
 
+<!-- Aplicativo -->
 <div id="wrapper">
     <!-- Menu de la pagina web -->
     <ul class="sidebar navbar-nav">
@@ -155,6 +157,7 @@
     <!-- Contenido del aplicativo -->
     <div id="content-wrapper">
         <div class="container-fluid">
+            <!-- Cabecera donde muestra el titulo del aplicativo -->
             <header class="masthead text-center text-white d-flex">
                 <div class="container my-auto">
                     <div class="row">
@@ -167,8 +170,57 @@
                     </div>
                 </div>
             </header>
-            <!-- Configuraciones de variables y botones del datatable -->
+            <!-- aplicación -->
             <div class="container my-auto">
+                <div class="col-lg-12 mx-auto">
+                    <form name="formulariioVariables" method="post" action="#">
+                        <!-- Botones para las relaciones -->
+                        <div class="form-group ">
+                            <div class="col-lg-12 mx-auto">
+                                <!-- Botones Agregar Variable -->
+                                <button type="button" class="btn btn-primary btn-responsive"
+                                        data-target="#ImportarModelo" onclick="limpiarImportarModelo()">
+                                    <!-- quitamos el data-toggle="modal" para que funcione el javascript creado para el modal -->
+                                    Agregar nuevo factor
+                                </button>
+                                <!-- Boton Borrar una fila seleccionada -->
+                                <button type="button" id="borrarFactor" class="btn btn-danger btn-responsive">Borrar un
+                                    factor
+                                </button>
+                                <!-- Boton Importar modelo -->
+                                <button type="button" class="btn btn-warning" data-toggle="modal"
+                                        data-target="#ImportarModelo" onclick="limpiarImportarModelo()">
+                                    Importar Variables
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- DataTable de Factores -->
+                <div class="container-fluid">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <i class="fas fa-table"></i>
+                            Tabla de factores
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="datatableVariables" class="table table-bordered display nowrap"
+                                       style="width:100%">
+                                    <thead>
+                                    <tr>
+                                        <th>Factor</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Configuraciones de variables y botones del datatable -->
                 <div class="col-lg-12 mx-auto">
                     <form name="frm" method="post" action="#">
                         <!-- grupo de configuraciones de variables -->
@@ -180,9 +232,9 @@
                                     <label>Factores:</label>
                                     <select class="selectpicker form-control" name="variables[]" id="variables"
                                             size="1">
-                                      <!--  <option>kevin</option>
-                                        <option>joan</option>
-                                        <option>diego</option>-->
+                                        <!--  <option>kevin</option>
+                                          <option>joan</option>
+                                          <option>diego</option>-->
                                     </select>
                                 </div>
                             </div>
@@ -211,14 +263,15 @@
                         <div class="form-group ">
                             <div class="col-lg-12 mx-auto">
                                 <!-- Boton agregar relacion -->
-                                <button type="button" class="btn btn-primary btn-responsive" data-target="#mostrarmodal"
+                                <button type="button" class="btn btn-primary btn-responsive"
+                                        data-target="#mostrarmodal"
                                         onclick="pasarModal()">
                                     <!-- quitamos el data-toggle="modal" para que funcione el javascript creado para el modal -->
                                     Agregar nueva relación
                                 </button>
                                 <!-- Boton Borrar una fila seleccionada -->
-                                <button type="button" id="button" class="btn btn-danger btn-responsive">Borrar fila
-                                    Seleccionada
+                                <button type="button" id="button" class="btn btn-danger btn-responsive">Borrar una
+                                    relación
                                 </button>
                                 <!-- Boton cargar modelo -->
                                 <button type="button" class="btn btn-success btn-responsive" data-toggle="modal"
@@ -229,155 +282,113 @@
                                 <!-- Boton Importar modelo -->
                                 <button type="button" class="btn btn-warning" data-toggle="modal"
                                         data-target="#ImportarModelo" onclick="limpiarImportarModelo()">
-                                    Importar Modelo
+                                    Importar relaciones
                                 </button>
                             </div>
                         </div>
                     </form>
                 </div>
-            </div>
-            <!-- tabla de relaciones -->
-            <div class="container-fluid">
-                <!-- DataTable Relaciones -->
-                <div class="card mb-3">
-                    <div class="card-header">
-                        <i class="fas fa-table"></i>
-                        Tabla de relaciones
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table id="example" class="table table-bordered display nowrap" style="width:100%">
-                                <thead>
-                                <tr>
-                                    <th>Factor Receptor</th>
-                                    <th>Factor Emisor</th>
-                                    <th>Peso</th>
-                                    <th>Escala</th>
-                                    <th>Tipo de Factor</th>
-                                </tr>
-                                </thead>
-                                <!--
-                                <tfoot>
-                                <tr>
-                                    <th>Factor</th>
-                                    <th>Relación</th>
-                                    <th>Peso</th>
-                                    <th>Tipo de Factor</th>
-                                    <th>Editar</th>
-                                    <th>borrar</th>
-                                </tr>
-                                </tfoot>
-                                -->
-                                <tbody>
-                                <!--
-                                <tr>
-                                    <td>asd</td>
-                                    <td>hhh</td>
-                                    <td>23</td>
-                                    <td>diduso</td>
-                                    <td>editar</td>
-                                    <td>
-                                        <button type="button" class="btn btn-danger deletebtn" id="deletebtn"><span
-                                                class="fas fa-eraser"></span></button>
-                                    </td>
-                                </tr>
-                                <tr>
 
-                                    <td>kevin</td>
-                                    <td>maria</td>
-                                    <td>14</td>
-                                    <td>diduso</td>
-                                    <td>editar</td>
-                                    <td>
-                                        <button type="button" class="btn btn-danger deletebtn"><span
-                                                class="fas fa-eraser"></span></button>
-                                    </td>
-                                </tr>
-                                -->
-                                </tbody>
-                            </table>
+                <!-- tabla de relaciones -->
+                <div class="container-fluid">
+                    <!-- DataTable Relaciones -->
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <i class="fas fa-table"></i>
+                            Tabla de relaciones
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="example" class="table table-bordered display nowrap" style="width:100%">
+                                    <thead>
+                                    <tr>
+                                        <th>Factor Receptor</th>
+                                        <th>Factor Emisor</th>
+                                        <th>Peso</th>
+                                        <th>Escala</th>
+                                        <th>Tipo de Factor</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
+                    <!-- Boton para genrerar la Centralidad -->
+                    <!--<div class="text-center">
+                        <p>
+                            <button id="generar" class="btn btn-primary btn-responsive"
+                                    onclick="calcularCentralidad()">Generar Centralidad
+                            </button>
+                        </p>
+                    </div>-->
+                    <!-- Mensaje de alerta de la inferencia neutrosofica -->
+                    <!-- DataTable Centralidad -->
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <i class="fas fa-table"></i>
+                            Tabla de centralidad
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="centralidad" class="table table-bordered display nowrap"
+                                       style="width:100%">
+                                    <thead>
+                                    <tr>
+                                        <th>Factor</th>
+                                        <th>Indegree</th>
+                                        <th>Outdegree</th>
+                                        <th>Total degree</th>
+                                        <th>De-neutrosificacion</th>
+                                        <th>Mediana valores</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Boton para genrerar el grafico -->
+                    <!--<div class="text-center">
+                        <p>
+                            <button id="generarGrafico" class="btn btn-primary btn-responsive"
+                                    onclick="generarGrafico()">Generar Grafico
+                            </button>
+                        </p>
+                    </div>-->
+                    <!-- Grafico de Barras-->
+                    <div class="row">
+                        <div class="col-lg-12 mx-auto">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <i class="fas fa-chart-bar"></i>
+                                    Gráfico de barras de resultados de la centralidad
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="GraficoResultadosAplicativo" width="100%" height="25"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Grafico de porcentajes -->
+                    <!-- <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <i class="fas fa-chart-pie"></i>
+                                    Gráfico circular de bibliográfias
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="myPieChart" width="100%" height="40"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
                 </div>
-                <!-- Boton para genrerar la Centralidad -->
-                <!--<div class="text-center">
-                    <p>
-                        <button id="generar" class="btn btn-primary btn-responsive"
-                                onclick="calcularCentralidad()">Generar Centralidad
-                        </button>
-                    </p>
-                </div>-->
-                <!-- Mensaje de alerta de la inferencia neutrosofica -->
-                <!--<div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>Nota:</strong> Al generar una nueva centralidad las poderaciones dadas a los factores con
-                    indeterminacion pueden variar debido a la inferencia neutrosofica.
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>-->
-                <!-- DataTable Centralidad -->
-                <div class="card mb-3">
-                    <div class="card-header">
-                        <i class="fas fa-table"></i>
-                        Tabla de centralidad
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table id="centralidad" class="table table-bordered display nowrap" style="width:100%">
-                                <thead>
-                                <tr>
-                                    <th>Factor</th>
-                                    <th>Indegree</th>
-                                    <th>Outdegree</th>
-                                    <th>Total degree</th>
-                                    <th>De-neutrosificacion</th>
-                                    <th>Mediana valores</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <!-- Boton para genrerar el grafico -->
-                <!--<div class="text-center">
-                    <p>
-                        <button id="generarGrafico" class="btn btn-primary btn-responsive"
-                                onclick="generarGrafico()">Generar Grafico
-                        </button>
-                    </p>
-                </div>-->
-                <!-- Grafico de Barras-->
-                <div class="row">
-                    <div class="col-lg-12 mx-auto">
-                        <div class="card mb-3">
-                            <div class="card-header">
-                                <i class="fas fa-chart-bar"></i>
-                                Gráfico de barras de resultados de la centralidad
-                            </div>
-                            <div class="card-body">
-                                <canvas id="GraficoResultadosAplicativo" width="100%" height="25"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Grafico de porcentajes -->
-                <!-- <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card mb-3">
-                            <div class="card-header">
-                                <i class="fas fa-chart-pie"></i>
-                                Gráfico circular de bibliográfias
-                            </div>
-                            <div class="card-body">
-                                <canvas id="myPieChart" width="100%" height="40"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
+                <!-- /.container-fluid -->
             </div>
-            <!-- /.container-fluid -->
         </div>
     </div>
 </div>
@@ -491,7 +502,8 @@
                 </form>
             </div>
             <div class="modal-footer ">
-                <button type="button" class="btn btn-warning btn-lg" data-dismiss="modal" onclick="actualizarRelacion()"
+                <button type="button" class="btn btn-warning btn-lg" data-dismiss="modal"
+                        onclick="actualizarRelacion()"
                         style="width: 100%;"><span
                         class="glyphicon glyphicon-ok-sign"></span> Actualizar
                 </button>
@@ -513,13 +525,15 @@
             </div>
             <div class="modal-body">
 
-                <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Desea borrar esta
+                <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Desea borrar
+                    esta
                     relación?
                 </div>
 
             </div>
             <div class="modal-footer ">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="eliminarRelacion()"><span
+                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                        onclick="eliminarRelacion()"><span
                         class="glyphicon glyphicon-ok-sign"></span> Yes
                 </button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal"><span
@@ -532,7 +546,7 @@
     <!-- /.modal-dialog -->
 </div>
 
-<!-- Modal -->
+<!-- Modal Agregar Relacion-->
 <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="mostrarmodalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -574,7 +588,8 @@
                     </div>
                     <!-- Mensaje de alerta para agregar una nueva relación -->
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        <strong>Nota:</strong> Tiene que existir un peso mayor a 0 para que exista una nueva relación.
+                        <strong>Nota:</strong> Tiene que existir un peso mayor a 0 para que exista una nueva
+                        relación.
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -592,22 +607,48 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="agregarRelacion()">Guardar
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="agregarRelacion()">
+                    Guardar
                 </button>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Modal Agregar Factores -->
+<div class="modal fade" id="ModalFactores" tabindex="-1" role="dialog"
+     aria-labelledby="ModalFactoresLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalFactoresLabel">Agregar nueva relación</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form name="formulariioModalFactores" method="post" action="#">
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="agregarRelacion()">
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
 
 <script language="javascript">
-.dataTables_paginate {
-  width: 100%;
-  text-align: center;
-}
+
 /*
 //Buscar dentro del datatable
 $(document).ready(function() {
@@ -634,6 +675,11 @@ $(document).ready(function() {
     } );
 } );
 */
+
+
+
+
+
 </script>
 
 <!-- JavaScript-->
