@@ -35,9 +35,13 @@
 				}
 			}
 
+			function limpiarFactoresModal(){
+                document.getElementById("variableTexto").value="";
+			}
+			/*
 			function eliminarSelectVariables(){
 				frm.variables.options.length=0;
-			}
+			}*/
 			
 			function eliminarSelectFinal(){
 				var select = document.getElementById("variablesFinales");
@@ -76,83 +80,6 @@
 			    }
 			}
 
-			function pasarModal(){
-			    var longitudVariables=frm.variables.options.length;
-				if(longitudVariables>=2){
-					CargarComboModal();
-					//eliminarSelectVariables(); //funciono
-					//formularioModal.auxVariables.options.length = frm.variables.options.length; //longitud del select
-					$(document).ready(function(){
-						$("#mostrarmodal").modal("show");
-					});
-					CargarComboModal();
-				}else{
-					alert("Faltan factores para implementar las relaciones.")
-					$(document).ready(function(){
-						$("#mostrarmodal").modal("hide");
-					});
-				}
-			}
-			
-			function CargarComboModal(){
-				//formularioModal.getElementById(id).options.length = 0;
-				
-				//formularioModal.variablesFinales.options.length = frm.variables.options.length; //longitud del select
-				document.getElementById("entradaRango").disabled = false;
-				CargarSelectFinal();
-				CargarSelectAuxiliar();
-				CargarRangoEntrada();
-				formularioModal.tipoFactor.selectedIndex=0; //0=difuso y 1=neutrosofico
-			}
-			function CargarSelectFinal(){
-				formularioModal.variablesFinales.options.length = frm.variables.options.length; //longitud del select
-				for(a=0;a<frm.variables.options.length;a++){
-					formularioModal.variablesFinales.options[a].value = frm.variables.options[a].value;
-					formularioModal.variablesFinales.options[a].text = frm.variables.options[a].text;
-				}
-				formularioModal.variablesFinales.selectedIndex = 0;
-			}
-			
-			function CargarSelectAuxiliar(){
-				formularioModal.auxVariables.options.length = frm.variables.options.length; //longitud del select
-				var combo = document.getElementById("variablesFinales").value; //obtenemos el valor actual del select
-				var x = document.getElementById("auxVariables"); //obtener los valores del select auxiliar
-				for(a=0;a<frm.variables.options.length;a++){
-					if(combo==frm.variables.options[a].value){
-						formularioModal.auxVariables.selectedIndex= a;
-					}else{
-						
-					}
-					formularioModal.auxVariables.options[a].value = frm.variables.options[a].value;
-					formularioModal.auxVariables.options[a].text = frm.variables.options[a].text;
-				}
-				x.remove(x.selectedIndex);
-			}
-			
-			function CargarRangoEntrada()
-			{
-			    //inicializa los pesos
-				document.getElementById('entradaRango').value=0; //barra de progreso del rango
-				salidaRango.innerHTML = 0; //valor de salida que aparece cuando se mueve el rango
-				//inicializa las escala de significancia
-                var auxEscala = document.getElementById("escalaRango");
-                auxEscala.innerHTML = "Sin relación";
-			}
-			
-			function cambiarFactores(){
-				formularioModal.auxVariables.options.length = formularioModal.variablesFinales.options.length; //longitud del select
-				var combo = document.getElementById("variablesFinales").value; //obtenemos el valor actual del select
-				var x = document.getElementById("auxVariables");
-				for(a=0;a<formularioModal.variablesFinales.options.length;a++){
-						if(combo==formularioModal.variablesFinales.options[a].value){ //si son iguales agrego
-							formularioModal.auxVariables.selectedIndex= a;
-						}
-						formularioModal.auxVariables.options[a].value = formularioModal.variablesFinales.options[a].value;
-						formularioModal.auxVariables.options[a].text = formularioModal.variablesFinales.options[a].text;
-				}
-				x.remove(x.selectedIndex);
-			}
-
 			function agregarVariablesCentralidad(){
 			    var auxfactorCentralidad = document.getElementsByName("factorCentralidad[]");
 			    var combo = document.getElementById("variables");
@@ -160,11 +87,12 @@
                     //var opcion = document.createElement("opcion");
                     //opcion.text = auxfactorCentralidad[i].innerHTML;
                     //auxVariables.add(opcion);
-
-                    var option = document.createElement("option");
+                    var table = $('#datatableFactores').DataTable();
+			        table.row.add( [agregarFactor]).draw();
+                    /*var option = document.createElement("option");
 					combo.options.add(option, i);
 					combo.options[i].value = auxfactorCentralidad[i].innerHTML;
-				    combo.options[i].innerText = auxfactorCentralidad[i].innerHTML;
+				    combo.options[i].innerText = auxfactorCentralidad[i].innerHTML;*/
 
 			    }
 
@@ -251,8 +179,9 @@
 
         }*/
             function cargarModelo(){
+                borrarTodaTablaFactores();
                 borrarTodaTablaRelacion();
-                eliminarSelectVariables();
+               // eliminarSelectVariables();
 	            //lee_json();
 	            $.ajax({
                     url: "/obtenerRelaciones",
@@ -278,7 +207,7 @@
                             console.log(auxFactorEmisor[j].innerHTML);
                         }*/
                         calcularCentralidad();
-                        agregarVariablesCentralidad();
+                        //agregarVariablesCentralidad();
                         generarGrafico();
                     }
                 });
@@ -326,13 +255,127 @@
 			            calcularCentralidad();
 	                    generarGrafico();
 	                }else{
-	                    alert("No se agrego la relación ya existes.");
+	                    alert("No se agrego la relación, ya existe.");
 	                }
 			    }
 
 			}
 
+			//var longitudFactoresDatatable=0;
+
+			function comprobarFactoresDatatable(){
+                var auxFactor = document.getElementsByName("factorPrincipal[]");
+			    var agregarFactor = document.getElementById("variableTexto").value;
+			    //console.log(auxFactor.length);
+			    for (var i=0; i<auxFactor.length; i++) {
+			        //console.log(auxFactor[i].innerHTML);
+			        //console.log(agregarFactor);
+			        if(auxFactor[i].innerHTML==agregarFactor){
+                        return 2;
+			        }
+			    }
+			    return 1;
+			}
+
+			function agregarFactoresDatatable(){
+			    var auxagregarFactor=document.getElementById("variableTexto").value;
+                var agregarFactor ='<p name="factorPrincipal[]">'+ auxagregarFactor+'</p>';
+                if(auxagregarFactor==""){
+                    alert("No se guardado el factor, ya que no fue ingresado.");
+                }else{
+                    var validar = comprobarFactoresDatatable();
+                    if(validar==1){
+                        var table = $('#datatableFactores').DataTable();
+			            table.row.add( [agregarFactor]).draw();
+                    }else{
+                        alert("No se agrego el factor, ya existe.");
+                    }
+                }
+            }
+
+            function pasarModal(){
+                var auxFactor = document.getElementsByName("factorPrincipal[]");
+			    var longitudVariables=auxFactor.length;
+				if(longitudVariables>=2){
+					CargarComboModal();
+					//eliminarSelectVariables(); //funciono
+					//formularioModal.auxVariables.options.length = frm.variables.options.length; //longitud del select
+					$(document).ready(function(){
+						$("#mostrarmodal").modal("show");
+					});
+					//CargarComboModal();
+				}else{
+					alert("Faltan factores para implementar las relaciones.")
+					$(document).ready(function(){
+						$("#mostrarmodal").modal("hide");
+					});
+				}
+			}
+
+			function CargarComboModal(){
+				//formularioModal.getElementById(id).options.length = 0;
+
+				//formularioModal.variablesFinales.options.length = frm.variables.options.length; //longitud del select
+				document.getElementById("entradaRango").disabled = false;
+				CargarSelectFinal();
+				CargarSelectAuxiliar();
+				CargarRangoEntrada();
+				formularioModal.tipoFactor.selectedIndex=0; //0=difuso y 1=neutrosofico
+			}
+
+			function CargarSelectFinal(){
+			    var auxFactor = document.getElementsByName("factorPrincipal[]");
+				formularioModal.variablesFinales.options.length = auxFactor.length //longitud del select
+				for(a=0;a<auxFactor.length;a++){
+					formularioModal.variablesFinales.options[a].value = auxFactor[a].innerHTML;
+					formularioModal.variablesFinales.options[a].text = auxFactor[a].innerHTML;
+				}
+				formularioModal.variablesFinales.selectedIndex = 0;
+			}
+
+			function CargarSelectAuxiliar(){
+			    var auxFactor = document.getElementsByName("factorPrincipal[]");
+				formularioModal.auxVariables.options.length = auxFactor.length; //longitud del select
+				var combo = document.getElementById("variablesFinales").value; //obtenemos el valor actual del select
+				var x = document.getElementById("auxVariables"); //obtener los valores del select auxiliar
+				for(a=0;a<auxFactor.length;a++){
+					if(combo==auxFactor[a].innerHTML){
+						formularioModal.auxVariables.selectedIndex= a;
+					}else{
+
+					}
+					formularioModal.auxVariables.options[a].value = auxFactor[a].innerHTML;
+					formularioModal.auxVariables.options[a].text = auxFactor[a].innerHTML;
+				}
+				x.remove(x.selectedIndex);
+			}
+
+			function CargarRangoEntrada()
+			{
+			    //inicializa los pesos
+				document.getElementById('entradaRango').value=0; //barra de progreso del rango
+				salidaRango.innerHTML = 0; //valor de salida que aparece cuando se mueve el rango
+				//inicializa las escala de significancia
+                var auxEscala = document.getElementById("escalaRango");
+                auxEscala.innerHTML = "Sin relación";
+			}
+
+			function cambiarFactores(){
+				formularioModal.auxVariables.options.length = formularioModal.variablesFinales.options.length; //longitud del select
+				var combo = document.getElementById("variablesFinales").value; //obtenemos el valor actual del select
+				var x = document.getElementById("auxVariables");
+				for(a=0;a<formularioModal.variablesFinales.options.length;a++){
+						if(combo==formularioModal.variablesFinales.options[a].value){ //si son iguales agrego
+							formularioModal.auxVariables.selectedIndex= a;
+						}
+						formularioModal.auxVariables.options[a].value = formularioModal.variablesFinales.options[a].value;
+						formularioModal.auxVariables.options[a].text = formularioModal.variablesFinales.options[a].text;
+				}
+				x.remove(x.selectedIndex);
+			}
+
 			//para limpiar el importar modelo el file
 			function limpiarImportarModelo(){
                 //aqui el codigo
+                document.getElementById("inputfile").value="";
 			}

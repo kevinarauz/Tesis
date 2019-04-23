@@ -86,7 +86,7 @@ $('#centralidad').DataTable( {
 }
 
 $(document).ready(function() {
-    $('#datatableVariables').DataTable( {
+    $('#datatableFactores').DataTable( {
 		//"order": [[ 0, "desc" ]],//ordenar el primer factor desc ya que comienza por 0
 		"pageLength": 50,
 		language: {
@@ -112,10 +112,10 @@ $(document).ready(function() {
         dom: 'Bfrtip',
         buttons: [
             'copy',
-			{extend:'csvHtml5',title: 'Matriz de Relacion'},
-			{extend:'excelHtml5',title: 'Matriz de Relacion'},
-			{extend:'pdfHtml5',title: 'Matriz de Relacion'},
-			{extend:'print',title: 'Matriz de Relacion'}
+			{extend:'csvHtml5',title: 'Matriz de Factores'},
+			{extend:'excelHtml5',title: 'Matriz de Factores'},
+			{extend:'pdfHtml5',title: 'Matriz de Factores'},
+			{extend:'print',title: 'Matriz de Factores'}
         ],
         dom: "<'row'<'col-md-3'l><'col-md-6 text-center'B><'col-md-3'f>>" +
          "<'row'<'col-md-12'tr>>" +
@@ -239,6 +239,10 @@ $(document).ready(function() {
     $('#addRow').click();
 } );*/
 
+function borrarTodaTablaFactores(){
+	var table = $('#datatableFactores').DataTable();
+	table.clear().draw();
+}
 
 function borrarTodaTablaRelacion(){
 	logitudMatrizRelacion=0;
@@ -275,6 +279,29 @@ $(document).ready(function() {
     $('#addRow').click();
 } );
 */
+
+//borrar fila seleccionada de la matriz de relacion
+$(document).ready(function() {
+    var table = $('#datatableFactores').DataTable();
+
+    $('#datatableFactores tbody').on( 'click', 'tr', function () {
+        if ( $(this).hasClass('selected') ) {
+            $(this).removeClass('selected');;
+        }
+        else {
+            table.$('tr.selected').removeClass('selected');//para seleccionar una fila antes de borrar
+            $(this).addClass('selected');
+        }
+    } );
+
+    $('#borrarFactor').click( function () {
+        table.row('.selected').remove().draw( false );//jbuborrar fila seleccionada
+		//logitudMatrizRelacion=logitudMatrizRelacion-1;
+		//calcularCentralidad();
+	    //generarGrafico();
+    } );
+});
+
 //borrar fila seleccionada de la matriz de relacion
 $(document).ready(function() {
     var table = $('#example').DataTable();
@@ -511,7 +538,7 @@ function calcularMedianaValores(){
 }
 
 function cargarCsv(){
-	eliminarSelectVariables();
+	//eliminarSelectVariables();
 	borrarTodaTablaRelacion();
 	borrarTodaTablaCentralidad();
 	limpiarGraficoBarras();
@@ -541,7 +568,7 @@ function cargarCsv(){
                     if(colcount!=5) {
                         //incorrect number of columns
                         //newrow="<tr class='badrowcount'><td>incorrect number of columns</td><td></td><td></td><td></td></tr>"
-						//alert("Numero de columnas incorrecto.");
+						alert("Numero de columnas incorrecto.");
 						row=therows.length;
                     } else {
 						var t = $('#example').DataTable();
@@ -558,10 +585,45 @@ function cargarCsv(){
 				  }//alert(logitudMatrizRelacion);
 
 				  calcularCentralidad();
-				  agregarVariablesCentralidad();
+				  //agregarVariablesCentralidad();
 				  generarGrafico();
                 }
 
 				rdr.readAsText($("#inputfile")[0].files[0]);
 
+}
+
+function cargarCsvFactores(){
+
+	  borrarTodaTablaFactores();
+	  var rdr = new FileReader();
+                rdr.onload = function (e) {
+                  //get the rows into an array
+                  var therows = e.target.result.split("\n");
+				  //logitudMatrizRelacion=therows.length-1;
+                  //loop through the rows
+				  //alert(therows.length);
+                  for (var row = 1; row < therows.length; row++  ) {
+					//variables
+
+                    //build a new table row
+                    var newrow = "";
+                    //get the columns into an array
+                    var columns = therows[row].split(",");
+                    //get number of columns
+                    var colcount=columns.length;
+
+					var factor='<p name="factorPrincipal[]">'+columns[0].replace(/['"]+/g, '')+"</p>";
+                    if(colcount!=1) {
+                        //incorrect number of columns
+                        //newrow="<tr class='badrowcount'><td>incorrect number of columns</td><td></td><td></td><td></td></tr>"
+						alert("Numero de columnas incorrecto.");
+						row=therows.length;
+                    } else {
+						var t = $('#datatableFactores').DataTable();
+						t.row.add( [factor]).draw();
+					}
+				  }
+                }
+				rdr.readAsText($("#inputfileFactores")[0].files[0]);
 }

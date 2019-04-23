@@ -173,15 +173,15 @@
             <!-- aplicación -->
             <div class="container my-auto">
                 <div class="col-lg-12 mx-auto">
-                    <form name="formulariioVariables" method="post" action="#">
-                        <!-- Botones para las relaciones -->
+                    <form name="formularioBotonesVariables" method="post" action="#">
+                        <!-- Botones para los factores -->
                         <div class="form-group ">
                             <div class="col-lg-12 mx-auto">
-                                <!-- Botones Agregar Variable -->
-                                <button type="button" class="btn btn-primary btn-responsive"
-                                        data-target="#ImportarModelo" onclick="limpiarImportarModelo()">
+                                <!-- Botones Agregar un Nuevo Facotr -->
+                                <button type="button" class="btn btn-primary btn-responsive" data-toggle="modal"
+                                        data-target="#ModalFactores" onclick="limpiarFactoresModal()">
                                     <!-- quitamos el data-toggle="modal" para que funcione el javascript creado para el modal -->
-                                    Agregar nuevo factor
+                                    Agregar un nuevo factor
                                 </button>
                                 <!-- Boton Borrar una fila seleccionada -->
                                 <button type="button" id="borrarFactor" class="btn btn-danger btn-responsive">Borrar un
@@ -189,8 +189,8 @@
                                 </button>
                                 <!-- Boton Importar modelo -->
                                 <button type="button" class="btn btn-warning" data-toggle="modal"
-                                        data-target="#ImportarModelo" onclick="limpiarImportarModelo()">
-                                    Importar Variables
+                                        data-target="#ImportarFactores" onclick="limpiarImportarModelo()">
+                                    Importar Factores
                                 </button>
                             </div>
                         </div>
@@ -205,7 +205,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="datatableVariables" class="table table-bordered display nowrap"
+                                <table id="datatableFactores" class="table table-bordered display nowrap"
                                        style="width:100%">
                                     <thead>
                                     <tr>
@@ -224,30 +224,30 @@
                 <div class="col-lg-12 mx-auto">
                     <form name="frm" method="post" action="#">
                         <!-- grupo de configuraciones de variables -->
-                        <div class="form-group">
+                        <!--<div class="form-group">-->
                             <!-- Boton Select variables -->
-                            <div class="form-group">
+                           <!-- <div class="form-group">
                                 <div class="col-lg-6 mx-auto">
                                     <h3>Agregar factores a evaluar</h3>
                                     <label>Factores:</label>
                                     <select class="selectpicker form-control" name="variables[]" id="variables"
-                                            size="1">
+                                            size="1">-->
                                         <!--  <option>kevin</option>
                                           <option>joan</option>
                                           <option>diego</option>-->
-                                    </select>
+                                   <!-- </select>
                                 </div>
-                            </div>
+                            </div>-->
                             <!-- Input ingreso de variables -->
-                            <div class="form-group">
+                          <!--  <div class="form-group">
                                 <div class="col-lg-6 mx-auto">
                                     <label>Dato:</label>
                                     <input type="text" class="form-control" placeholder="Ingresar el factor"
                                            name="txtDato"/>
                                 </div>
-                            </div>
+                            </div>-->
                             <!-- Boton de opciones de variables -->
-                            <div class="form-group ">
+                          <!--  <div class="form-group ">
                                 <div class="col-lg-6 mx-auto">
                                     <input class="btn btn-primary" type="button" onclick="agregar();"
                                            value="Agregar Variable"/>
@@ -258,7 +258,7 @@
                                 </div>
                             </div>
                         </div>
-                        <br>
+                        <br>-->
                         <!-- Botones para las relaciones -->
                         <div class="form-group ">
                             <div class="col-lg-12 mx-auto">
@@ -423,13 +423,52 @@
     </div>
 </div>
 
-<!-- Modal importar CSV -->
+<!-- Modal importar factores CSV -->
+<div class="modal fade" id="ImportarFactores" tabindex="-1" role="dialog" aria-labelledby="ImportarFactoresLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ImportarFactoresLabel">Importar factores </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Subir archivo -->
+                <div class="file-loading">
+                    <input id="inputfileFactores" name="subiirFactores" type="file" accept=".csv">
+                </div>
+                <br>
+                <!-- Nota de advertencia -->
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Nota:</strong> Al cargar el csv se eliminaran los factores actuales.
+                    <br>Ejemplo del formato que tiene que tener el csv:
+                    <br>"Factor"
+                    <br>"a"
+                    <br>"b"
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" title="guardar" onclick="cargarCsvFactores()"
+                        data-dismiss="modal">Cargar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal importar relaciones CSV -->
 <div class="modal fade" id="ImportarModelo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Importar modelo </h5>
+                <h5 class="modal-title" id="exampleModalLabel">Importar Relaciones </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -443,6 +482,10 @@
                 <!-- Nota de advertencia -->
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
                     <strong>Nota:</strong> Al cargar el csv se eliminaran las relaciones actuales.
+                    <br>Ejemplo del formato que tiene que tener el csv:
+                    <br>"Factor Receptor","Factor Emisor","Peso","Escala","Tipo de Factor"
+                    <br>"a","b","0.36","Positivamente débil","Difuso"
+                    <br>"a","c","Indeterminado","Indeterminado","Indeterminado"
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -622,19 +665,22 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="ModalFactoresLabel">Agregar nueva relación</h5>
+                <h5 class="modal-title" id="ModalFactoresLabel">Agregar nuevo factor</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <form name="formulariioModalFactores" method="post" action="#">
-
+                    <div class="form-group">
+                        <label for="">Factor</label>
+                        <input type="text" class="form-control" id="variableTexto" placeholder="Ingrese el factor">
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="agregarRelacion()">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="agregarFactoresDatatable()">
                     Guardar
                 </button>
             </div>
