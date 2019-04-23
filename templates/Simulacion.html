@@ -187,6 +187,12 @@
                                 <button type="button" id="borrarFactor" class="btn btn-danger btn-responsive">Borrar un
                                     factor
                                 </button>
+                                 <!-- Boton cargar modelo -->
+                                <button type="button" class="btn btn-success btn-responsive" data-toggle="modal"
+                                        data-target="#CargarModelo">
+                                    <!-- quitamos el data-toggle="modal" para que funcione el javascript creado para el modal -->
+                                    Cargar Modelo Propuesto
+                                </button>
                                 <!-- Boton Importar modelo -->
                                 <button type="button" class="btn btn-warning" data-toggle="modal"
                                         data-target="#ImportarFactores" onclick="limpiarImportarModelo()">
@@ -272,12 +278,6 @@
                                 <!-- Boton Borrar una fila seleccionada -->
                                 <button type="button" id="button" class="btn btn-danger btn-responsive">Borrar una
                                     relación
-                                </button>
-                                <!-- Boton cargar modelo -->
-                                <button type="button" class="btn btn-success btn-responsive" data-toggle="modal"
-                                        data-target="#CargarModelo">
-                                    <!-- quitamos el data-toggle="modal" para que funcione el javascript creado para el modal -->
-                                    Cargar Modelo Propuesto
                                 </button>
                                 <!-- Boton Importar modelo -->
                                 <button type="button" class="btn btn-warning" data-toggle="modal"
@@ -407,7 +407,7 @@
             <div class="modal-body">
                 <!-- Nota de advertencia -->
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>Nota:</strong> Al cargar el modelo propuesto se eliminaran las relaciones actuales.
+                    <strong>Nota:</strong> Al cargar el modelo propuesto se eliminaran los factores y relaciones actuales.
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -481,7 +481,7 @@
                 <br>
                 <!-- Nota de advertencia -->
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>Nota:</strong> Al cargar el csv se eliminaran las relaciones actuales.
+                    <strong>Nota:</strong> Al cargar el csv se eliminaran relaciones actuales.
                     <br>Ejemplo del formato que tiene que tener el csv:
                     <br>"Factor Receptor","Factor Emisor","Peso","Escala","Tipo de Factor"
                     <br>"a","b","0.36","Positivamente débil","Difuso"
