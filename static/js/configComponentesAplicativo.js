@@ -220,6 +220,7 @@
             }
 
             function comprobarRelacion(){
+                validaPaginacion50();
                 var xauxFactor = document.getElementsByName("factor[]");
 	            var xauxRelacion = document.getElementsByName("relacion[]");
 	            var xfactor = document.getElementById("variablesFinales").value;
@@ -229,6 +230,7 @@
                         return 0;
                     }
 	            }
+	            validaPaginacion10();
 	            return 1;
             }
 
@@ -258,8 +260,10 @@
 			            var table = $('#example').DataTable();
 			            table.row.add( [factor,relacion,peso,escala,tipo]).draw();
 			            logitudMatrizRelacion=logitudMatrizRelacion+1;
+			            validaPaginacion50();
 			            calcularCentralidad();
 	                    generarGrafico();
+                        validaPaginacion10();
 	                }else{
 	                    alert("No se agrego la relación, ya existe.");
 	                }
