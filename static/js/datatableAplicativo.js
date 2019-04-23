@@ -57,38 +57,19 @@ function InicializarArrays(){
 }
 
 function validaPaginacion10(){
-/*
-}
-    $(document).ready(function() {
-$('#example').DataTable( {
-        "pageLength": 10,
-     });
-});
-    $(document).ready(function() {
-$('#centralidad').DataTable( {
-        "pageLength": 10,
-     });
-});*/
+$('#example').DataTable().page.len(10).draw();
+$('#centralidad').DataTable().page.len(10).draw();
 }
 
 function validaPaginacion50(){
-/*
-$(document).ready(function() {
-$('#example').DataTable( {
-        "pageLength": 50,
-     });
-});
-    $(document).ready(function() {
-$('#centralidad').DataTable( {
-        "pageLength": 50,
-     });
-});*/
+$('#example').DataTable().page.len(50).draw();
+$('#centralidad').DataTable().page.len(50).draw();
 }
 
 $(document).ready(function() {
     $('#datatableFactores').DataTable( {
 		//"order": [[ 0, "desc" ]],//ordenar el primer factor desc ya que comienza por 0
-		"pageLength": 50,
+		"pageLength": 10,
 		language: {
         "decimal": "",
         "emptyTable": "No hay información",
@@ -131,7 +112,7 @@ $(document).ready(function() {
 $(document).ready(function() {
     $('#example').DataTable( {
 		//"order": [[ 0, "desc" ]],//ordenar el primer factor desc ya que comienza por 0
-		"pageLength": 50,
+		"pageLength": 10,
 		language: {
         "decimal": "",
         "emptyTable": "No hay información",
@@ -175,7 +156,7 @@ $(document).ready(function() {
     $('#centralidad').DataTable( {
 		"order": [[ 5, "desc" ]],//ordenar el primer factor desc ya que comienza por 0
 		"aoColumnDefs": [ { 'bSortable': false, 'aTargets': [ 0,1,2,3,4,5 ] } ],//desabilitar columnas
-		"pageLength": 50,
+		"pageLength": 10,
         language: {
         "decimal": "",
         "emptyTable": "No hay información",
@@ -329,7 +310,7 @@ function calcularCentralidad(){
 	borrarTodaTablaCentralidad();
 	limpiarArrays();
 	limpiarGraficoBarras();
-	//validaPaginacion50();
+	validaPaginacion50();
 	if(logitudMatrizRelacion == 0){
 		//alert("No existen relaciones.");
 	}else{
@@ -386,8 +367,8 @@ function calcularFactorCentralidad(){
 		}
 	}
 	valida=2;
-	console.log(auxfactorCentralidad.length);
-	console.log(auxFactorRelacion.length);
+	//console.log(auxfactorCentralidad.length);
+	//console.log(auxFactorRelacion.length);
 	for (var i=0; i<logitudMatrizRelacion; i++) {
 		for (var j=0; j<auxfactorCentralidad.length; j++) {
 			if(auxfactorCentralidad[j]==auxFactorRelacion[i].innerHTML){
@@ -421,6 +402,7 @@ function calcularIndeegree(){
 			if(auxfactorCentralidad[j]==auxFactorEmisor[i].innerHTML){
 				if(!isNaN(auxPeso[i].innerHTML)){
 					inDifuso[j]=inDifuso[j]+parseFloat(auxPeso[i].innerHTML);
+					inDifuso[j].toFixed(2);
 					//auxIndegree[i]=auxPeso[i].innerHTML;
 				}else{
 					inNeutrosofico[j]="I";
@@ -437,8 +419,9 @@ function calcularIndeegree(){
 	for (var i=0; i<auxfactorCentralidad.length; i++) {
 		if(inNeutrosofico[i]==0){
 			auxIndegree[i]=inDifuso[i];
+			auxIndegree[i].toFixed(2);
 		}else{
-			auxIndegree[i]=inDifuso[i]+" + "+"I";
+			auxIndegree[i]=inDifuso[i].toFixed(2)+" + "+"I";
 		}
 
 	}
@@ -457,6 +440,7 @@ function calcularOutdeegree(){
 			if(auxfactorCentralidad[j]==auxFactorReceptor[i].innerHTML){
 				if(!isNaN(auxPeso[i].innerHTML)){
 					outDifuso[j]=outDifuso[j]+parseFloat(auxPeso[i].innerHTML);
+					outDifuso[j].toFixed(2);
 					//auxIndegree[i]=auxPeso[i].innerHTML;
 				}else{
 					outNeutrosofico[j]="I";
@@ -473,8 +457,9 @@ function calcularOutdeegree(){
 	for (var i=0; i<auxfactorCentralidad.length; i++) {
 		if(outNeutrosofico[i]==0){
 			auxOutdegree[i]=outDifuso[i];
+			auxOutdegree[i].toFixed(2);
 		}else{
-			auxOutdegree[i]=outDifuso[i]+" + "+"I";
+			auxOutdegree[i]=outDifuso[i].toFixed(2)+" + "+"I";
 		}
 
 	}
@@ -492,9 +477,10 @@ function calcularTotalDeegree(){
 		TotalDegreeDifuso[i]=(parseFloat(inDifuso[i])+parseFloat(outDifuso[i]));
 		if(inNeutrosofico[i]==0 && outNeutrosofico[i]==0){
 			auxTotaldegree[i]=TotalDegreeDifuso[i];
+			auxTotaldegree[i].toFixed(2);
 		}else{
 			TotalDegreeNeutrosofico[i]="I";
-			auxTotaldegree[i]=TotalDegreeDifuso[i]+" + "+TotalDegreeNeutrosofico[i];
+			auxTotaldegree[i]=TotalDegreeDifuso[i].toFixed(2)+" + "+TotalDegreeNeutrosofico[i];
 		}
 	}
 }
@@ -515,10 +501,11 @@ function calcularDesneutrosificacion(){
 		TotalDesneutrosificacionDifuso[i]=TotalDegreeDifuso[i];
 		if(inNeutrosofico[i]==0 && outNeutrosofico[i]==0){
 			auxDesneutrosificacion[i]=TotalDesneutrosificacionDifuso[i];
+			auxDesneutrosificacion[i].toFixed(2);
 		}else{
 			//TotalDesneutrosificacionNeutrosofico[i]=(parseFloat(auxTotaldegree[i])+(parseFloat(auxTotaldegree[i])+parseFloat(aleatorio)));
 			TotalDesneutrosificacionNeutrosofico[i]=(parseFloat(TotalDesneutrosificacionDifuso[i])+parseFloat(aleatorio));
-			auxDesneutrosificacion[i]=TotalDesneutrosificacionDifuso[i]+" + "+TotalDesneutrosificacionNeutrosofico[i].toFixed(2);
+			auxDesneutrosificacion[i]=TotalDesneutrosificacionDifuso[i].toFixed(2)+" + "+TotalDesneutrosificacionNeutrosofico[i].toFixed(2);
 		}
 	}
 	//alert(""+aleatorio);
@@ -529,7 +516,7 @@ function calcularMedianaValores(){
 	for (var i=0; i<auxfactorCentralidad.length; i++) {
 	    if(inNeutrosofico[i]==0 && outNeutrosofico[i]==0){
 	        total=TotalDesneutrosificacionDifuso[i];
-		    auxMedianaValores[i]=total;
+		    auxMedianaValores[i]=total.toFixed(2);
 	    }else{
             total=((parseFloat(TotalDesneutrosificacionDifuso[i])+parseFloat(TotalDesneutrosificacionNeutrosofico[i]))/2);
 		    auxMedianaValores[i]=total.toFixed(2);

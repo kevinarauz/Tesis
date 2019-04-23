@@ -181,6 +181,7 @@
             function cargarModelo(){
                 borrarTodaTablaFactores();
                 borrarTodaTablaRelacion();
+                validaPaginacion50();
                // eliminarSelectVariables();
 	            //lee_json();
 	            $.ajax({
@@ -208,7 +209,8 @@
                         }*/
                         calcularCentralidad();
                         //agregarVariablesCentralidad();
-                        generarGrafico();
+                        //generarGrafico();
+                        //validaPaginacion10();
                     }
                 });
             }
