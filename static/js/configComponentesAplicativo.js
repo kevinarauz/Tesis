@@ -80,24 +80,6 @@
 			    }
 			}
 
-			function agregarVariablesCentralidad(){
-			    var auxfactorCentralidad = document.getElementsByName("factorCentralidad[]");
-			    var combo = document.getElementById("variables");
-			    for(var i=0; i<auxfactorCentralidad.length; i++){
-                    //var opcion = document.createElement("opcion");
-                    //opcion.text = auxfactorCentralidad[i].innerHTML;
-                    //auxVariables.add(opcion);
-                    var table = $('#datatableFactores').DataTable();
-			        table.row.add( [agregarFactor]).draw();
-                    /*var option = document.createElement("option");
-					combo.options.add(option, i);
-					combo.options[i].value = auxfactorCentralidad[i].innerHTML;
-				    combo.options[i].innerText = auxfactorCentralidad[i].innerHTML;*/
-
-			    }
-
-			}
-
 			function agregar () {
 				if ( document.frm.txtDato.value.length == 0 ) {
 					alert("Escriba el nombre del factor.");
@@ -208,11 +190,33 @@
                             console.log(auxFactorEmisor[j].innerHTML);
                         }*/
                         calcularCentralidad();
+                        validaPaginacion50();
+                        agregarFactoresCentralidad();
                         //agregarVariablesCentralidad();
                         //generarGrafico();
-                        //validaPaginacion10();
+                        validaPaginacion10();
                     }
                 });
+            }
+
+            function agregarFactoresCentralidad(){
+                var auxfactorCentralidad = document.getElementsByName("factorCentralidad[]");
+                //var auxFactor = document.getElementsByName("factorPrincipal[]");
+			    //var combo = document.getElementById("variables");
+			    for(var i=0; i<auxfactorCentralidad.length; i++){
+                    //var opcion = document.createElement("opcion");
+                    //opcion.text = auxfactorCentralidad[i].innerHTML;
+                    //auxVariables.add(opcion);
+                    //auxFactor[i].innerHTML=auxfactorCentralidad[i].innerHTML;
+                    var xFactor='<p name="factorPrincipal[]">'+ auxfactorCentralidad[i].innerHTML+'</p>'
+                    var table = $('#datatableFactores').DataTable();
+			        table.row.add( [xFactor]).draw();
+                    /*var option = document.createElement("option");
+					combo.options.add(option, i);
+					combo.options[i].value = auxfactorCentralidad[i].innerHTML;
+				    combo.options[i].innerText = auxfactorCentralidad[i].innerHTML;*/
+
+			    }
             }
 
             function comprobarRelacion(){
@@ -296,6 +300,7 @@
             }
 
             function pasarModal(){
+                validaPaginacionFactores50();
                 var auxFactor = document.getElementsByName("factorPrincipal[]");
 			    var longitudVariables=auxFactor.length;
 				if(longitudVariables>=2){
@@ -312,6 +317,7 @@
 						$("#mostrarmodal").modal("hide");
 					});
 				}
+				validaPaginacionFactores10();
 			}
 
 			function CargarComboModal(){
@@ -323,6 +329,7 @@
 				CargarSelectAuxiliar();
 				CargarRangoEntrada();
 				formularioModal.tipoFactor.selectedIndex=0; //0=difuso y 1=neutrosofico
+				//validaPaginacion10();
 			}
 
 			function CargarSelectFinal(){

@@ -55,7 +55,12 @@ function InicializarArrays(){
 		TotalDesneutrosificacionNeutrosofico[i]=0;
 	}
 }
-
+function validaPaginacionFactores10(){
+$('#datatableFactores').DataTable().page.len(10).draw();
+}
+function validaPaginacionFactores50(){
+$('#datatableFactores').DataTable().page.len(50).draw();
+}
 function validaPaginacion10(){
 $('#example').DataTable().page.len(10).draw();
 $('#centralidad').DataTable().page.len(10).draw();
