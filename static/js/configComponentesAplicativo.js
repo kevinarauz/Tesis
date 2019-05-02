@@ -268,7 +268,6 @@
 	                    alert("No se agrego la relación, ya existe.");
 	                }
 			    }
-
 			}
 
 			//var longitudFactoresDatatable=0;

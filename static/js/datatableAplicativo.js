@@ -619,3 +619,59 @@ function cargarCsvFactores(){
                 }
 				rdr.readAsText($("#inputfileFactores")[0].files[0]);
 }
+
+function guardarFactoresAjax(){
+
+    var formData = {
+        'file' : $('#file')[0].files[0],
+        'saturacion' : $('input[name=saturacion]').val(),
+        'contraste' : $('input[name=contraste]').val(),
+        'brillo' : $('input[name=brillo]').val(),
+        '100x80' : $('input[name=chx_100x80]').val(),
+        '225x180' : $('input[name=chx_225x180]').val(),
+        '500x400' : $('input[name=chx_500x400]').val(),
+        '1200x960' : $('input[name=chx_1200x960]').val(),
+        'calidad' : $('input[name=calidad]').val()
+
+    };
+    $.ajax({
+        type : 'POST',
+        url : '/guardarFactores',
+        data : formData,
+        dataType: 'json',
+        encode : true
+    })
+        .done(function(data){
+            console.log(data);
+        });
+       //event.preventDefault();
+
+}
+
+function guardarRelacionesAjax(){
+
+    var formData = {
+        'file' : $('#file')[0].files[0],
+        'saturacion' : $('input[name=saturacion]').val(),
+        'contraste' : $('input[name=contraste]').val(),
+        'brillo' : $('input[name=brillo]').val(),
+        '100x80' : $('input[name=chx_100x80]').val(),
+        '225x180' : $('input[name=chx_225x180]').val(),
+        '500x400' : $('input[name=chx_500x400]').val(),
+        '1200x960' : $('input[name=chx_1200x960]').val(),
+        'calidad' : $('input[name=calidad]').val()
+
+    };
+    $.ajax({
+        type : 'POST',
+        url : '/guardarModelo',
+        data : formData,
+        dataType: 'json',
+        encode : true
+    })
+        .done(function(data){
+            console.log(data);
+        });
+       //event.preventDefault();
+
+}

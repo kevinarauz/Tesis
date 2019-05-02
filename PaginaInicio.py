@@ -84,7 +84,14 @@ def Bibliografia():
 
 @app.route('/Simulacion')
 def Simulacion():
-    return render_template('Simulacion.html')
+    cur = mysql.connection.cursor()
+    cur.execute('SELECT max(id) FROM modelo')
+    datos = cur.fetchone()
+    cur.close()
+    maxID=datos[0]
+    maxID=maxID+1
+    #print(maxID)
+    return render_template('Simulacion.html', ID=maxID)
 
 @app.route('/obtenerRelaciones', methods=['GET'])
 def obtenerRelaciones():
@@ -105,6 +112,24 @@ def obtenerRelaciones():
         payload.append(content)
         content = {}
     return jsonify(payload)
+
+@app.route('/guardarModelo',methods=['POST'])
+def guardarModelo():
+    cur = mysql.connection.cursor()
+    sql_insert_query = """ INSERT INTO `relaciones`
+                              (`id`, `factor`, `relacion`, `peso`,`escala`,`peso`,`tipo`,`idmodelo`) VALUES (1,'Scott','2018-04-11', 26)"""
+    cur.execute(sql_insert_query)
+    mysql.connection.commit()
+    return 'Guardado'
+
+@app.route('/guardarFactores',methods=['POST'])
+def guardarFactores():
+    cur = mysql.connection.cursor()
+    sql_insert_query = """ INSERT INTO `factores`
+                                  (`id`, `factor`, `idModelo`) VALUES (1,'Scott','2018-04-11')"""
+    cur.execute(sql_insert_query)
+    mysql.connection.commit()
+    return 'Guardado'
 
 if __name__ == '__main__':
     app.run(debug=True)
